@@ -1,0 +1,239 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+    background-color: rgb(61, 61, 61);
+    color: white;
+}
+
+.navbar {
+    background-color: transparent;
+    padding: 20px;
+}
+.navbar-brand {
+    margin-left: 30px;
+}
+.responsive-navbar {
+    display: none;
+}
+.main {
+    height: 520px;
+    background-image: url('../images/ezgif.com-gif-maker.png');
+    background-size: cover;
+}
+.main-street {
+    height: 520px;
+    background-image: url('../images/streetwear.png');
+    background-size: cover;
+}
+.head-preview {
+    padding-top: 50px;
+    
+}
+.preview-header {
+    font-size: 60px;
+    color: white;
+}
+#preview-header-two {
+    background-color: black;
+    width: 60%;
+    margin: 0 auto;
+}
+.preview-search-input {
+    margin-top: 10px;
+    width: 550px;
+    height: 45px;
+    border: none;
+    border-radius: 2px;
+    padding: 20px;
+    outline: none;
+}
+.nav-item {
+    margin-top: 5px;
+}
+.categories {
+    padding-top: 15px;
+}
+.popular-images {
+    width: 220px;
+}
+.most-popular {
+    /* margin-left: 200px; */
+}
+.most-images {
+    width: 100%;
+}
+.most-cards {
+    background-color: rgb(250, 250, 250);
+    width: 120%;
+}
+.live-marketplace {
+    background-color: #08a05c;
+    padding: 25px 30px 22px 30px;
+    color: white;
+    border-radius: 4px;
+    font-size: 18px;
+    text-decoration: none;
+}
+.live-marketplace:hover {
+    background-color: #08a05c;
+    padding: 25px 30px 22px 30px;
+    color: white;
+    border-radius: 4px;
+    font-size: 18px;
+    text-decoration: none;
+}
+.calendar-images {
+    width: 100%;
+}
+.calendar-cards {
+    /* background-color: rgb(250, 250, 250); */
+    width: 100%;
+    border: 1px solid rgb(206, 206, 206);
+}
+
+.ftco-heading-2 {
+    font-size: 13px;
+}
+
+.recent-updates-content {
+    font-size: 12px;
+    color: #808080;
+}
+
+@media (min-width: 361px) and (max-width: 767px) {
+    .popular-images {
+        width: 160px;
+        padding-bottom: 20px;
+    }
+    .most-cards {
+        width: 100%;
+    }
+    .live-marketplace {
+        padding: 15px 10px 15px 10px;
+        color: white;
+        border-radius: 4px;
+        font-size: 10px;
+        text-decoration: none;
+    }
+    .main {
+        display: none;
+    }
+    .categories-ul {
+        padding: 0 !important;
+    }
+    .responsive-navbar {
+        display: block !important;
+    }
+    .navbar-brand {
+        color: black !important;
+    }
+    .nav-link {
+        color: black !important;
+    }
+    .navbar {
+        border-bottom: 1px solid #e6e6e6;
+    }
+    .navbar-toggler {
+        color: black !important;
+        border-color: #666 !important;
+    }
+    .help-search-input {
+        width: 250px !important;
+    }
+    .help-cards {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    .contact-us-button {
+        width: 100% !important;
+    }
+    .help-cards {
+        padding-top: 50px !important;
+        margin-bottom: 10px !important;
+    }
+    .preview-header {
+        font-size: 42px !important;
+    }
+    .browse-path-container {
+        display: none !important;
+    }
+    .browse-filter-by {
+        display: flex !important;
+    }
+    
+
+}
+
+
+@media (max-width: 360px) {
+    .popular-images {
+        width: 130px;
+        padding-bottom: 20px;
+    }
+    .most-cards {
+        width: 100%;
+    }
+    .live-marketplace {
+        padding: 15px 10px 15px 10px;
+        color: white;
+        border-radius: 4px;
+        font-size: 10px;
+        text-decoration: none;
+    }
+    .main {
+        display: none;
+    }
+    .categories-ul {
+        padding: 0 !important;
+    }
+    .responsive-navbar {
+        display: block !important;
+    }
+    .navbar-brand {
+        color: black !important;
+    }
+    .nav-link {
+        color: black !important;
+    }
+    .navbar {
+        border-bottom: 1px solid #e6e6e6;
+    }
+    .navbar-toggler {
+        color: black !important;
+        border-color: #666 !important;
+    }
+    .help-search-input {
+        width: 250px !important;
+    }
+    .help-cards {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    .contact-us-button {
+        width: 100% !important;
+    }
+    .help-cards {
+        padding-top: 50px !important;
+        margin-bottom: 10px !important;
+    }
+    .preview-header {
+        font-size: 37px !important;
+    }
+    .browse-path-container {
+        display: none !important;
+    }
+    .browse-filter-by {
+        display: block !important;
+    }
+}
+
+
+@media (max-width: 1450px) {
+    #preview-header-two {
+        background-color: black;
+        width: 74%;
+        /* margin: 0 auto; */
+    }
+}
