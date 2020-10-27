@@ -1,0 +1,45 @@
+.about-main {
+    background-image: url(https://stockx-assets.imgix.net/png/icons/works/background.png?auto=compress,format);
+    height: 520px;
+}
+
+@media (min-width: 361px) and (max-width: 767px) {
+    .about-main {
+        height: auto;
+    }
+    .about-main-text {
+        font-size: 16px !important;
+    }
+    .double-about-main {
+        max-width: 100% !important;
+    }
+    .about-main-header {
+        font-size: 28px !important;
+    }
+    .about-button {
+        padding: 10px !important;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .about-main {
+        height: auto;
+    }
+    .about-main-text {
+        font-size: 16px !important;
+    }
+    .double-about-main {
+        max-width: 100% !important;
+    }
+    .about-main-header {
+        font-size: 28px !important;
+    }
+    .about-button {
+        padding: 5px !important;
+    }
+}
+
+@media (max-width: 1450px) {
+    
+}
