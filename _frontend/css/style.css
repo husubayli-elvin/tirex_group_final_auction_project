@@ -120,6 +120,9 @@ footer {
     .main {
         display: none;
     }
+    .main-street {
+        display: none;
+    }
     .categories-ul {
         padding: 0 !important;
     }
@@ -162,6 +165,12 @@ footer {
     .browse-filter-by {
         display: flex !important;
     }
+    .sneaker-label {
+        width: 100% !important;
+    }
+    .street-label {
+        width: 100% !important;
+    }
     
 
 }
@@ -183,6 +192,9 @@ footer {
         text-decoration: none;
     }
     .main {
+        display: none;
+    }
+    .main-street {
         display: none;
     }
     .categories-ul {
@@ -226,6 +238,12 @@ footer {
     }
     .browse-filter-by {
         display: block !important;
+    }
+    .sneaker-label {
+        width: 100% !important;
+    }
+    .street-label {
+        width: 100% !important;
     }
 }
 
