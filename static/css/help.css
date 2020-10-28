@@ -1,0 +1,76 @@
+.navbar-brand {
+    color: white !important;
+}
+.navbar-toggler {
+    color: white !important;
+    border-color: white !important;
+}
+.nav-link {
+    color: white !important;
+}
+.help-main {
+    background-color: black;
+    height: 520px;
+}
+.help-search-input {
+    margin-top: 10px;
+    width: 550px;
+    height: 45px;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+}
+.help-cards {
+    color: white;
+    margin: 1px;
+    width: 220px;
+    height: 220px;
+    padding-top: 100px;
+}
+#help-cards-1 {
+    background-image: url('../images/download.png');
+    background-size: cover;
+    /* padding-top: 120px; */
+}
+#help-cards-2 {
+    background-image: url('../images/download-1.png');
+    background-size: cover;
+    /* padding-top: 120px; */
+}
+#help-cards-3 {
+    background-image: url('../images/download-2.png');
+    background-size: cover;
+    /* padding-top: 120px; */
+}
+#help-cards-4 {
+    background-image: url('../images/download-3.png');
+    background-size: cover;
+    /* padding-top: 120px; */
+}
+#help-cards-5 {
+    background-image: url('../images/download-4.png');
+    background-size: cover;
+    /* padding-top: 120px; */
+}
+#help-cards-6 {
+    background-image: url('../images/download-5.png');
+    background-size: cover;
+    /* padding-top: 120px; */
+}
+.helps-text {
+    font-size: 16px;
+}
+#smaller-help-font {
+    font-size: 14px;
+}
+#smaller-help-font-two {
+    font-size: 15px;
+}
+.container-fluid-one {
+    width: 100%;
+    /* padding-left: 7px; */
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}

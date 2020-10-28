@@ -1,7 +1,7 @@
 version: '3'
 services:  
     postges:
-        container_name: postgres_db
+        container_name: postgres_data
         image: postgres:9.6
         environment:
             POSTGRES_DB: 'compass'
