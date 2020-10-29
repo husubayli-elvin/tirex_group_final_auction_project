@@ -105,47 +105,22 @@
         <h5 class="ml-3 mb-3">Most Popular <i class="fas fa-question-circle"></i></h5>
         <div class="container-fluid">
             <div class="row">
+                {% for product in products %}
+                    {% if product.brand.category.title == 'Sneakers' %}
+                    
+
                 <div class="custom-col-2 col-12">
                     <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="images/greenj.png" alt="">
-                        <p class="mt-2">Jordan 1 Retro High Lucky Green (W)</p>
-                        <h5>$250</h5>
+                        <img class="most-images" src="{{product.image.url}}" alt="">
+                        <p class="mt-2">{{ product.title }}</p>
+                        <h5>${{ product.current_price }}</h5>
                         <small>1918 Sold</small>
                     </div>
-                    
                 </div>
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="images/byeezy.png" alt="">
-                        <p class="mt-2">Adidas Yeezy Boost 350 V2 Carbon</p>
-                        <h5>$255</h5>
-                        <small>1227 Sold</small>
-                    </div>
-                </div>
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="images/j4.png" alt="">
-                        <p class="mt-2">Jordan 4 Retro Union Off Noir</p>
-                        <h5>$670</h5>
-                        <small>1068 Sold</small>
-                    </div>
-                </div>
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="images/bluej.png" alt="">
-                        <p class="mt-2">Jordan 1 Mid Sisterhood (W)</p>
-                        <h5>$185</h5>
-                        <small>763 Sold</small>
-                    </div>
-                </div>
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="images/grayj.png" alt="">
-                        <p class="mt-2">Jordan 1 Mid White Shadow</p>
-                        <h5>$150</h5>
-                        <small>670 Sold</small>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
+
+                
             </div>
         </div>
     </div>
@@ -160,47 +135,15 @@
 
                 <div class="custom-col-2 col-12">
                     <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="" alt="">
+                        <img class="most-images" src="{{product.image.url}}" alt="">
                         <p class="mt-2">{{ product.title }}</p>
-                        <h5>${{ product.retail_price }}</h5>
+                        <h5>${{ product.current_price }}</h5>
                         <small>1918 Sold</small>
                     </div>
                 </div>
                     {% endif %}
                 {% endfor %}
-
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="https://stockx.imgix.net/KangaROOS-Ultimate-Sneakerness-Green.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1538080256" alt="">
-                        <p class="mt-2">Adidas Yeezy Boost 350 V2 Carbon</p>
-                        <h5>$255</h5>
-                        <small>1227 Sold</small>
-                    </div>
-                </div>
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="https://stockx.imgix.net/Nike-SB-Zoom-Blazer-Mid-Sashiko-Mystic-Navy.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1596526825" alt="">
-                        <p class="mt-2">Nike SB Zoom Blazer Mid Sashiko</p>
-                        <h5>$100</h5>
-                        <small>1068 Sold</small>
-                    </div>
-                </div>
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="https://stockx.imgix.net/Converse-Gianno-Golf-Le-Fleur-Evergreen.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1602665013" alt="">
-                        <p class="mt-2">Jordan 1 Mid Sisterhood (W)</p>
-                        <h5>$185</h5>
-                        <small>763 Sold</small>
-                    </div>
-                </div>
-                <div class="custom-col-2 col-12">
-                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="https://stockx.imgix.net/Converse-Gianno-Golf-Le-Fleur-Lavender.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1602665013g" alt="">
-                        <p class="mt-2">Jordan 1 Mid White Shadow</p>
-                        <h5>$150</h5>
-                        <small>670 Sold</small>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -213,82 +156,22 @@
         <h5 class="ml-3 mb-3">Release Calendar</h5>
         <div class="container-fluid">
             <div class="row">
+                {% for product in release_calendar_products %}
+                {% if product.brand.category.title == 'Sneakers' %}
+
                 <div class="col-sm-3 col-12 p-0">
                     <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/Nike-Air-Max-97-Slime-Halloween-2020.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1602067162" alt="">
-                        <p class="mt-2">Nike Air Max 97 Slime Halloween (2020)</p>
+                        <h4>{{ product.added_at | date:"M | j" }}</h4>
+                        <img class="calendar-images" src="{{ product.image.url }}" alt="">
+                        <p class="mt-2">{{ product.title }}</p>
                         <p>$300<p>
                         <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
                     </div>
                     
                 </div>
-                <div class="col-sm-3 col-12 p-0">
-                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/Nike-Air-Trainer-3-Dracula-Halloween-2020.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1598948962" alt="">
-                        <p class="mt-2">Nike Air Trainer 3 Dracula Halloween (2020)</p>
-                        <p>$150<p>
-                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-12 p-0">
-                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/Air-Jordan-12-Retro-Black-Dark-Concord.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1600961098" alt="">
-                        <p class="mt-2">Jordan 12 Retro Black Dark Concord</p>
-                        <p>$220<p>
-                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-12 p-0">
-                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/New-Balance-2002R-Salehe-Bembury.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1599326868" alt="">
-                        <p class="mt-2">New Balance 2002R Salehe Bembury</p>
-                        <p>$380<p>
-                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 col-12 p-0">
-                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/Reebok-Kamikaze-II-OG-2020.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1602581564" alt="">
-                        <p class="mt-2">Reebok Kamikaze II OG GGG (2020)</p>
-                        <p>$135<p>
-                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
-                    </div>
-                    
-                </div>
-                <div class="col-sm-3 col-12 p-0">
-                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/adidas-Yeezy-Boost-350-V2-Natural-1.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1603300962" alt="">
-                        <p class="mt-2">Adidas Yeezy Boost 350 V2 Natural</p>
-                        <p>$270<p>
-                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-12 p-0">
-                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/Nike-Air-Force-270-Utility-Volt-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1556312660" alt="">
-                        <p class="mt-2">Nike Air Force 270 Utility Volt Green (W)</p>
-                        <p>$95<p>
-                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-12 p-0">
-                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
-                        <h4>Oct | 20</h4>
-                        <img class="calendar-images" src="https://stockx.imgix.net/Off-White-Off-Court-30-White.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1570475094" alt="">
-                        <p class="mt-2">OFF-WHITE Off-Court 3.0 White Utility Volt</p>
-                        <p>$350<p>
-                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
-                    </div>
-                </div>
+                {% endif %}
+                {% endfor %}
+                
             </div>
         </div>
     </div>

@@ -38,6 +38,7 @@ class Brand(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=50)
     made_for =  models.CharField(max_length=50)
+    image = models.ImageField(upload_to='images')
     retail_price = models.DecimalField(max_digits=8, decimal_places=2)
     current_price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     description = models.TextField(max_length=3000)
@@ -54,6 +55,13 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+    def save(self):
+        super(Product, self).save()
+        if not self.current_price:
+            self.current_price == self.retail_price
+            super(Product, self).save()
+            
 
 class Property_name(models.Model):
     title = models.CharField(max_length=50)
