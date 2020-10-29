@@ -104,9 +104,9 @@ footer {
 
 .main-card {
     border: 1px solid #e0e0e0;
-    width: 22%;
+    width: auto;
     margin: 0 auto;
-    
+    display: inline-grid;
 
 }
 .card2 {
@@ -118,6 +118,8 @@ footer {
 a:hover {
     text-decoration: none;
 }
+
+
 
 @media (min-width: 361px) and (max-width: 767px) {
     .popular-images {
