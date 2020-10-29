@@ -12,3 +12,13 @@ class IndexView(TemplateView):
         context['products'] = Product.objects.order_by('-id')
         context['release_calendar_products'] = Product.objects.order_by('-id')[:4]
         return context
+
+class BrowseListView(ListView):
+    model = Product
+    context_object_name = 'browse_list'
+    template_name = 'browse.html'
+    queryset = Product.objects.order_by('-id')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

@@ -59,7 +59,7 @@ class Product(models.Model):
     def save(self):
         super(Product, self).save()
         if not self.current_price:
-            self.current_price == self.retail_price
+            self.current_price = self.retail_price
             super(Product, self).save()
             
 
