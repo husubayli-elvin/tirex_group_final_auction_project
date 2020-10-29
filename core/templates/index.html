@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}
     <title>Compass</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/custom-colums.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-</head>
-<body>
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/custom-colums.css' %}">
+    {% endblock %}
+
+
     <div class="responsive-navbar">
         <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
@@ -34,6 +31,7 @@
         </nav>
     </div>
     
+    {% block content %}
     <div class="main">
         <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
@@ -56,6 +54,7 @@
             </div>
         </nav>
 
+        
         <div class="head-preview text-center">
             <h1 class="preview-header">Buy & Sell</h1>
             <h1 class="preview-header" id="preview-header-two">Sneakers and Streetwear</h1>
@@ -87,16 +86,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-6">
-                    <img class="popular-images" src="images/jordan.png" alt="">
+                    <img class="popular-images" src="{% static 'images/jordan.png' %}" alt="">
                 </div>
                 <div class="col-sm-3 col-6">
-                    <img class="popular-images" src="images/presto.png" alt="">
+                    <img class="popular-images" src="{% static 'images/presto.png' %}" alt="">
                 </div>
                 <div class="col-sm-3 col-6">
-                    <img class="popular-images" src="images/yeezy350.png" alt="">
+                    <img class="popular-images" src="{% static 'images/yeezy350.png' %}" alt="">
                 </div>
                 <div class="col-sm-3 col-6">
-                    <img class="popular-images" src="images/adidas.png" alt="">
+                    <img class="popular-images" src="{% static 'images/adidas.png' %}" alt="">
                 </div>
             </div>
         </div>
@@ -155,15 +154,21 @@
         <h5 class="ml-3 mb-3">New <i class="fas fa-question-circle"></i></h5>
         <div class="container-fluid">
             <div class="row">
+                {% for product in products %}
+                    {% if product.brand.category.title == 'Sneakers' %}
+                    
+
                 <div class="custom-col-2 col-12">
                     <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="https://stockx.imgix.net/Nike-Zoom-KD-5-Elite-White-Gold.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1538080256" alt="">
-                        <p class="mt-2">Jordan 1 Retro High Lucky Green (W)</p>
-                        <h5>$250</h5>
+                        <img class="most-images" src="" alt="">
+                        <p class="mt-2">{{ product.title }}</p>
+                        <h5>${{ product.retail_price }}</h5>
                         <small>1918 Sold</small>
                     </div>
-                    
                 </div>
+                    {% endif %}
+                {% endfor %}
+
                 <div class="custom-col-2 col-12">
                     <div class="most-cards pl-1 pr-1 pt-1 pb-2">
                         <img class="most-images" src="https://stockx.imgix.net/KangaROOS-Ultimate-Sneakerness-Green.png?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1538080256" alt="">
@@ -287,87 +292,5 @@
             </div>
         </div>
     </div>
-
-    <div>
-        <footer class="ftco-footer ftco-footer-2 ftco-section pt-5">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2 pb-2">Recent updates</h2>
-                            <p class="recent-updates-content">The Drop List</p>
-                            <p class="recent-updates-content">The JJJJound Effect</p>
-                            <p class="recent-updates-content">Trick Or Treat Yourself</p>
-                            <p class="recent-updates-content">Xbox Series X</p>
-                            <p class="recent-updates-content">Supreme Fall/Winter Is Here</p>
-                            <p class="recent-updates-content">Crocs</p>
-                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4 ml-md-5">
-                            <h2 class="ftco-heading-2">Popular Releases</h2>
-                            <ul class="list-unstyled">
-                                <p class="recent-updates-content">Jordan 1 Dark Mocha</p>
-                            <p class="recent-updates-content">New Balance 2002R Salehe Bembury</p>
-                            <p class="recent-updates-content">Yeezy 350 V2 Natural</p>
-                            <p class="recent-updates-content">Jordan 12 Dark Concord</p>
-                            <p class="recent-updates-content">Jordan 1 Lucky Green (W)</p>
-                            <p class="recent-updates-content">Nike Air Force 1 Skeleton</p>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Air Jordan</h2>
-                            <ul class="list-unstyled">
-                            <p class="recent-updates-content">Air Jordan 1</p>
-                            <p class="recent-updates-content">Air Jordan 11</p>
-                            <p class="recent-updates-content">Air Jordan 3</p>
-                            <p class="recent-updates-content">Air Jordan 4</p>
-                            <p class="recent-updates-content">Air Jordan 5</p>
-                            <p class="recent-updates-content">Air Jordan 13</p>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Supreme</h2>
-                            <p class="recent-updates-content">T-Shirts</p>
-                            <p class="recent-updates-content">Accessories</p>
-                            <p class="recent-updates-content">Headwear</p>
-                            <p class="recent-updates-content">Bottoms</p>
-                            <p class="recent-updates-content">Hoodies</p>
-                            <p class="recent-updates-content">Box Logo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-    
-                        <p>
-                            Copyright &copy; Compass.
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            All rights reserved.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-    
-
-
-    
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</body>
-</html>
+    {% endblock %}
+ 

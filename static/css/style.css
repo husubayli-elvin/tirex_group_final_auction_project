@@ -19,7 +19,7 @@ footer {
 }
 .main {
     height: 520px;
-    background-image: url('../images/ezgif.com-gif-maker.png');
+    background-image: url(https://stockx-assets.imgix.net/Core/sneaker_plain.png?auto=compress,format);
     background-size: cover;
 }
 .main-street {
