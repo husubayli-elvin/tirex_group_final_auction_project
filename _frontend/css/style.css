@@ -119,6 +119,37 @@ a:hover {
     text-decoration: none;
 }
 
+/* 
+.form-group {
+	position: relative;
+	width: 50%;
+}
+.form-group .inputText{
+	width: 100%;
+	outline: none;
+	border:none;
+	border-bottom: 1px solid #777;
+ 	box-shadow: none !important;
+}
+.form-group .inputText:focus{
+	border-color: blue;
+	border-width: medium medium 2px;
+}
+.form-group .floating-label {
+	position: absolute;
+	pointer-events: none;
+	top: 18px;
+	left: 10px;
+	transition: 0.2s ease all;
+}
+.form-group input:focus ~ .floating-label,
+.form-group input:not(:focus):valid ~ .floating-label{
+	top: 0px;
+	left: 10px;
+	font-size: 13px;
+	opacity: 1;
+} */
+
 
 
 @media (min-width: 361px) and (max-width: 767px) {
