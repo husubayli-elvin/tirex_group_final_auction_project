@@ -1,0 +1,47 @@
+.sidebar-content h5{
+    font-size: 13px;
+
+}
+
+.sidebar-content p{
+    font-size: 11px;
+}
+
+.sidebar-links h5{
+    color:black;
+}
+
+.sidebar-links p{
+    color:gray;
+}
+
+.sidebar-links:hover{
+    text-decoration: none;
+    
+}
+
+.media:hover{
+    background-color: #EBECF0;
+
+}
+
+.purchasing{
+    width: 20px;
+    vertical-align: middle;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
