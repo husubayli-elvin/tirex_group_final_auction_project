@@ -104,51 +104,67 @@ footer {
 
 .main-card {
     border: 1px solid #e0e0e0;
-    width: auto;
+    width: 500px;
     margin: 0 auto;
     display: inline-grid;
+    border-radius: 3px;
 
 }
 .card2 {
     border: 1px solid black;
     width: 100%;
-
+    border-radius: 3px;
+    margin-bottom: 10px;
 }
 
 a:hover {
     text-decoration: none;
 }
 
-/* 
-.form-group {
-	position: relative;
-	width: 50%;
+
+.form-control{
+    border-radius: 3px;
 }
-.form-group .inputText{
-	width: 100%;
-	outline: none;
-	border:none;
-	border-bottom: 1px solid #777;
- 	box-shadow: none !important;
+
+
+.grid-tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    width: 23%;
+    height: 70px;
+    margin: 4px;
 }
-.form-group .inputText:focus{
-	border-color: blue;
-	border-width: medium medium 2px;
+
+
+.tile-inner {
+    background: #fff;
+    border: 1px solid #e5e7ea;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 94px;
+    height: 70px;
 }
-.form-group .floating-label {
-	position: absolute;
-	pointer-events: none;
-	top: 18px;
-	left: 10px;
-	transition: 0.2s ease all;
+
+.tile-inner:hover {
+    background-color: #fcedec;
 }
-.form-group input:focus ~ .floating-label,
-.form-group input:not(:focus):valid ~ .floating-label{
-	top: 0px;
-	left: 10px;
-	font-size: 13px;
-	opacity: 1;
-} */
+
+.item-row{
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 2px dotted #e5e7ea;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
 
 
 
