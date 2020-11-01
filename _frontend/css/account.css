@@ -45,3 +45,7 @@
     pointer-events: none;
     color: #aaa;
 }
+
+.tab-border-bottom {
+    border-bottom:4px solid green;
+  }
