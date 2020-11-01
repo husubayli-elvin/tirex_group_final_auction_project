@@ -49,3 +49,11 @@
 .tab-border-bottom {
     border-bottom:4px solid green;
   }
+
+table.dataTable thead th {
+    border: none;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 0;
+}
