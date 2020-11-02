@@ -52,7 +52,6 @@ form.addEventListener('submit', function(e){
     
     data.title = title
     
-    
     console.log(data.title)
 
     sendRequest(data)
@@ -65,8 +64,6 @@ document.querySelector("#sneakers-filter").addEventListener('click', () => {
     let sneaker_category = 'Sneakers'
 
     data.category = sneaker_category
-    
-    // data.title = ''
 
     data.category = sneaker_category
 
@@ -85,8 +82,6 @@ document.querySelector('#streetwear-filter').addEventListener('click', () => {
     let wear_category = 'Wear'
 
     data.category = wear_category
-
-    // data.title = ''
 
     console.log(data.category)
 
