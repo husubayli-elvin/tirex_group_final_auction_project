@@ -57,3 +57,20 @@ table.dataTable thead th {
 table.dataTable.no-footer {
     border-bottom: 0;
 }
+.fa-stack{
+    font-size: 0.35em;
+}
+i { 
+    vertical-align: middle; 
+}
+
+.tooltip > .tooltip-inner {
+    background-color: white;
+    color: black;
+    font-size: 14px;
+  }
+
+.progress{
+    color:green !important;
+}
+  
