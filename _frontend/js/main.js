@@ -24,15 +24,31 @@ function check_input(input){
 
 
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    check_input(input);
+// form.addEventListener("submit", function(e){
+//     e.preventDefault();
+//     check_input(input);
 
-});
+// });
 
 
-let change_color = document.querySelector(".selection");
+let change_color = document.querySelectorAll(".selection");
 
-change_color.addEventListener('click', function(e){
-    e.style.backgroundColor("rgb(255, 81, 95)")
+
+
+
+change_color.forEach( i => {
+    i.addEventListener('click', function(){
+        this.classList.add('back')
+        change_color.forEach( i => {
+            if( this != i){
+                i.classList.remove('back');
+            }
+        });
+        if(this.classList.contains('sell')){
+            document.querySelector('.changable').disabled=true;
+        }else{
+            document.querySelector('.changable').disabled=false;
+        }
+    });
+
 });
