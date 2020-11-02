@@ -8,11 +8,14 @@ class SearchProductAPI(ListAPIView):
 
     def get_queryset(self):
         title = self.request.data['title']
+        category = self.request.data['category']
         print(title)
         queryset = Product.objects.all()
 
         if title:
             queryset = queryset.filter(title__icontains=title)
+        if category:
+            queryset = queryset.filter(brand__category__title=category)
         return queryset
 
     def post(self, request, *args, **kwargs):
