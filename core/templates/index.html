@@ -105,8 +105,8 @@
         <h5 class="ml-3 mb-3">Most Popular <i class="fas fa-question-circle"></i></h5>
         <div class="container-fluid">
             <div class="row">
-                {% for product in products %}
-                    {% if product.category.title == 'Sneakers' %}
+                {% for product in sneakers %}
+                    
                     
 
                 <div class="custom-col-2 col-12">
@@ -117,7 +117,7 @@
                         <small>1918 Sold</small>
                     </div>
                 </div>
-                    {% endif %}
+                    
                 {% endfor %}
 
                 
@@ -129,8 +129,8 @@
         <h5 class="ml-3 mb-3">New <i class="fas fa-question-circle"></i></h5>
         <div class="container-fluid">
             <div class="row">
-                {% for product in products %}
-                    {% if product.category.title == 'Sneakers' %}
+                {% for product in sneakers %}
+                    
                     
 
                 <div class="custom-col-2 col-12">
@@ -141,7 +141,7 @@
                         <small>1918 Sold</small>
                     </div>
                 </div>
-                    {% endif %}
+                    
                 {% endfor %}
                 
             </div>
@@ -157,8 +157,7 @@
         <div class="container-fluid">
             <div class="row">
                 {% for product in release_calendar_products %}
-                {% if product.category.title == 'Sneakers' %}
-
+                
                 <div class="col-sm-3 col-12 p-0">
                     <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
                         <h4>{{ product.added_at | date:"M | j" }}</h4>
@@ -169,7 +168,7 @@
                     </div>
                     
                 </div>
-                {% endif %}
+                
                 {% endfor %}
                 
             </div>
