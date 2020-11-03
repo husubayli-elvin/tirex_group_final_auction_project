@@ -17,3 +17,15 @@ $(document).ready(function () {
           }
         });
     });
+
+
+$(document).ready(function () {
+    $('#follow-table').DataTable({
+        searching: false,
+        paging: false,
+        info: false,
+        "language": {
+            "emptyTable": "Your Follow List is empty. We can't even really call it a \"List\" yet because there isn't anything LISTED"
+        }
+        });
+    });

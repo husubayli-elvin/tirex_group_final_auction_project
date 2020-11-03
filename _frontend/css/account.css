@@ -74,3 +74,16 @@ i {
     color:green !important;
 }
   
+
+.add_product{
+    height: 20px;
+    width: 100%;
+}
+
+.fa-bars, .fa-th{
+    color:#BABABA;
+} 
+
+.fa-bars:hover, .fa-th:hover{
+    color:black;
+} 
