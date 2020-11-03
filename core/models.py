@@ -26,7 +26,7 @@ class Category(models.Model):
 
 class Brand(models.Model):
     title = models.CharField(max_length=50)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, db_index=True, related_name='brand')
+    category = models.ManyToManyField('Category',  verbose_name=("Category"))
 
     class Meta:
         verbose_name = 'Brand'
@@ -46,6 +46,7 @@ class Product(models.Model):
     delivery_fee = models.DecimalField(max_digits=8, decimal_places=2)
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE, db_index=True, related_name='product')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='product')
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, db_index=True, related_name='product')
     added_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

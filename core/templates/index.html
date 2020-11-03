@@ -106,7 +106,7 @@
         <div class="container-fluid">
             <div class="row">
                 {% for product in products %}
-                    {% if product.brand.category.title == 'Sneakers' %}
+                    {% if product.category.title == 'Sneakers' %}
                     
 
                 <div class="custom-col-2 col-12">
@@ -130,7 +130,7 @@
         <div class="container-fluid">
             <div class="row">
                 {% for product in products %}
-                    {% if product.brand.category.title == 'Sneakers' %}
+                    {% if product.category.title == 'Sneakers' %}
                     
 
                 <div class="custom-col-2 col-12">
@@ -157,7 +157,7 @@
         <div class="container-fluid">
             <div class="row">
                 {% for product in release_calendar_products %}
-                {% if product.brand.category.title == 'Sneakers' %}
+                {% if product.category.title == 'Sneakers' %}
 
                 <div class="col-sm-3 col-12 p-0">
                     <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">

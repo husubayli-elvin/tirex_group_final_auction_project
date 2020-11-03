@@ -4,7 +4,9 @@ let form = document.querySelector('.search-form');
 
 let data = {
     'title': '',
-    'category': ''
+    'category': '',
+    'brand': '',
+    'size_type': ''
 }
 
 let sendRequest = (data) => {
@@ -65,8 +67,6 @@ document.querySelector("#sneakers-filter").addEventListener('click', () => {
 
     data.category = sneaker_category
 
-    data.category = sneaker_category
-
     console.log(data.category)
 
     sendRequest(data)
@@ -93,3 +93,108 @@ document.querySelector('#streetwear-filter').addEventListener('click', () => {
 
     document.querySelector(".streetwear-red").style.color = '#ff5a5f'
 })
+
+document.querySelector('#adidas').addEventListener('click', () => {
+    let adidas = 'Adidas'
+
+    data.brand = adidas
+
+    console.log(data.brand)
+
+    sendRequest(data)
+
+    document.querySelector(".addi-red").style.color = '#ff5a5f'
+    document.querySelector(".jord-red").style.color = 'black'
+    document.querySelector(".nike-red").style.color = 'black'
+    document.querySelector(".essent-red").style.color = 'black'
+})
+
+document.querySelector('#jordan').addEventListener('click', () => {
+    let jordan = 'Jordan'
+
+    data.brand = jordan
+
+    console.log(data.brand)
+
+    sendRequest(data)
+
+    document.querySelector(".jord-red").style.color = '#ff5a5f'
+    document.querySelector(".addi-red").style.color = 'black'
+    document.querySelector(".nike-red").style.color = 'black'
+    document.querySelector(".essent-red").style.color = 'black'
+})
+
+document.querySelector('#nike').addEventListener('click', () => {
+    let nike = 'Nike'
+
+    data.brand = nike
+
+    console.log(data.brand)
+
+    sendRequest(data)
+
+    document.querySelector(".nike-red").style.color = '#ff5a5f'
+    document.querySelector(".jord-red").style.color = 'black'
+    document.querySelector(".addi-red").style.color = 'black'
+    document.querySelector(".essent-red").style.color = 'black'
+})
+
+document.querySelector('#essentials').addEventListener('click', () => {
+    let essentials = 'Essentials'
+
+    data.brand = essentials
+
+    console.log(data.brand)
+
+    sendRequest(data)
+
+    document.querySelector(".essent-red").style.color = '#ff5a5f'
+    document.querySelector(".jord-red").style.color = 'black'
+    document.querySelector(".addi-red").style.color = 'black'
+    document.querySelector(".nike-red").style.color = 'black'
+})
+
+
+
+let filterBySizeType = (element, type) => {
+    if (element.checked == true) {
+    
+        data.size_type = type
+    
+        console.log(data.size_type)
+    
+        sendRequest(data)
+    }
+    else {
+        data.size_type = ''
+    
+        console.log(data.size_type)
+    
+        sendRequest(data)
+    }
+}
+
+let men_cb = document.querySelector('#men-cb');
+
+let men = 'Men'
+
+men_cb.addEventListener('click', () => {
+    filterBySizeType(men_cb, men)
+})
+
+let women_cb = document.querySelector('#women-cb');
+let women = "Women"
+
+women_cb.addEventListener('click', () => {
+    filterBySizeType(women_cb, women)
+})
+
+let child_cb = document.querySelector('#child-cb');
+let child = 'Child'
+
+child_cb.addEventListener('click', () => {
+    filterBySizeType(child_cb, child)
+})
+
+
+
