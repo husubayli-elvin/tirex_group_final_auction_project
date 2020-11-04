@@ -2,6 +2,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIVie
 from rest_framework.viewsets import ModelViewSet
 from .serializers import ProductFilterSerializer
 from core.models import Product
+from rest_framework.response import Response
 
 class SearchProductAPI(ListAPIView):
     serializer_class = ProductFilterSerializer
@@ -11,7 +12,6 @@ class SearchProductAPI(ListAPIView):
         category = self.request.data.get('category')
         brand = self.request.data.get('brand')
         size_type = self.request.data.get('size_type')
-        size_types_list = list(size_type.split())
         print(title)
         print(size_type)
         queryset = Product.objects.all()
@@ -22,8 +22,8 @@ class SearchProductAPI(ListAPIView):
             queryset = queryset.filter(category__title=category)
         if brand:
             queryset = queryset.filter(brand__title=brand)
-        if size_types_list:
-            queryset = queryset.filter(made_for__in=size_types_list)
+        if size_type:
+            queryset = queryset.filter(made_for__in=size_type)
         return queryset
 
     def post(self, request, *args, **kwargs):

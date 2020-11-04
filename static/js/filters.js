@@ -173,23 +173,23 @@ let filterBySizeType = (element, type) => {
 
 let men_cb = document.querySelector('#men-cb');
 
-let size_types = ''
+let size_types = []
 
 let men = 'Men'
 
 men_cb.addEventListener('click', () => {
-    // size_types.push(men)
-    size_types_m = stringTheList(size_types, men)
-    filterBySizeType(men_cb, size_types_m)
+    size_types.push(men)
+    // size_types_m = stringTheList(size_types, men)
+    filterBySizeType(men_cb, size_types)
 })
 
 let women_cb = document.querySelector('#women-cb');
 let women = "Women"
 
 women_cb.addEventListener('click', () => {
-    // size_types.push(women)
-    size_types_w = stringTheList(size_types, women)
-    filterBySizeType(women_cb, size_types_w)
+    size_types.push(women)
+    // size_types_w = stringTheList(size_types, women)
+    filterBySizeType(women_cb, size_types)
 })
 
 let child_cb = document.querySelector('#child-cb');
@@ -197,9 +197,9 @@ let child_cb = document.querySelector('#child-cb');
 let child = 'Child'
 
 child_cb.addEventListener('click', () => {
-    // size_types.push(child)
-    size_types_c = stringTheList(size_types, child)
-    filterBySizeType(child_cb, size_types_c)
+    size_types.push(child)
+    // size_types_c = stringTheList(size_types, child)
+    filterBySizeType(child_cb, size_types)
 })
 
 let stringTheList = (past, added) => {
