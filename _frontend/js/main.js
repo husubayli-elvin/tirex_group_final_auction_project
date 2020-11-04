@@ -29,3 +29,15 @@ $(document).ready(function () {
         }
         });
     });
+
+
+$(document).ready(function () {
+    $('#portfolio-table').DataTable({
+        searching: false,
+        paging: false,
+        info: false,
+        "language": {
+            "emptyTable": " "
+        }
+        });
+    });
