@@ -14,7 +14,7 @@ class SearchProductAPI(ListAPIView):
         size_type = self.request.data.get('size_type')
         print(self.request.data)
         print(size_type)
-        queryset = Product.objects.all()
+        queryset = Product.objects.order_by('-id')
 
         if title:
             queryset = queryset.filter(title__icontains=title)
