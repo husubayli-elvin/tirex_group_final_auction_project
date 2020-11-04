@@ -26,7 +26,7 @@ let sendRequest = (data) => {
             else{
                 document.querySelector('.product-listt').innerHTML = ""
                 data.forEach(e => {
-                    console.log(e)
+                    // console.log(e)
                 document.querySelector('.product-listt').innerHTML += `
                 <div class="col-sm-3 col-6 p-3 p-sm-4 p-xl-5">
                      <div class="most-cards pl-1 pr-1 pt-1 pb-2">
@@ -158,12 +158,11 @@ let filterBySizeType = (element, type) => {
     
         data.size_type = type
     
-        console.log(data.size_type)
+        // console.log(data.size_type)
     
         sendRequest(data)
     }
     else {
-        data.size_type = ''
     
         console.log(data.size_type)
     
@@ -178,33 +177,52 @@ let size_types = []
 let men = 'Men'
 
 men_cb.addEventListener('click', () => {
-    size_types.push(men)
-    // size_types_m = stringTheList(size_types, men)
+
+    if(size_types.includes(men) == false){
+        size_types.push(men)
+    }
+    else {
+        men_index = size_types.indexOf(men)
+        size_types.splice(men_index, 1)
+        console.log(size_types)
+    }
     filterBySizeType(men_cb, size_types)
+    console.log(size_types)
 })
 
 let women_cb = document.querySelector('#women-cb');
 let women = "Women"
 
 women_cb.addEventListener('click', () => {
-    size_types.push(women)
-    // size_types_w = stringTheList(size_types, women)
+     if(size_types.includes(women) == false){
+        size_types.push(women)
+    }
+    else {
+        women_index = size_types.indexOf(women)
+        size_types.splice(women_index, 1)
+        console.log(size_types)
+    }
     filterBySizeType(women_cb, size_types)
+    console.log(size_types)
 })
 
 let child_cb = document.querySelector('#child-cb');
 
 let child = 'Child'
 
-child_cb.addEventListener('click', () => {
-    size_types.push(child)
-    // size_types_c = stringTheList(size_types, child)
-    filterBySizeType(child_cb, size_types)
-})
 
-let stringTheList = (past, added) => {
-    return `${past} ${added} `
-}
+child_cb.addEventListener('click', () => {
+     if(size_types.includes(child) == false){
+        size_types.push(child)
+    }
+    else {
+        child_index = size_types.indexOf(child)
+        size_types.splice(child_index, 1)
+        console.log(size_types)
+    }
+    filterBySizeType(child_cb, size_types)
+    console.log(size_types)
+})
 
 
 

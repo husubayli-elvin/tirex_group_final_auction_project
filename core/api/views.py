@@ -12,7 +12,7 @@ class SearchProductAPI(ListAPIView):
         category = self.request.data.get('category')
         brand = self.request.data.get('brand')
         size_type = self.request.data.get('size_type')
-        print(title)
+        print(self.request.data)
         print(size_type)
         queryset = Product.objects.all()
 
