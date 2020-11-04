@@ -2,6 +2,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+span {
+    cursor: pointer;
+}
+
 footer {
     background-color: rgb(61, 61, 61);
     color: white;

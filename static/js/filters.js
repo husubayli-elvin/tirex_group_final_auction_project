@@ -3,10 +3,6 @@ let url = 'http://127.0.0.1:8000/api/v1/search/';
 let form = document.querySelector('.search-form');
 
 let data = {
-    'title': '',
-    'category': '',
-    'brand': '',
-    'size_type': ''
 }
 
 let sendRequest = (data) => {
@@ -20,7 +16,8 @@ let sendRequest = (data) => {
         body: JSON.stringify(data)
     }).then(response => response.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
+        
             if (data.length == 0) {
                 document.querySelector('.product-listt').innerHTML = `
                     <h1 class="ml-5">Nothing Found</h1>
@@ -176,25 +173,38 @@ let filterBySizeType = (element, type) => {
 
 let men_cb = document.querySelector('#men-cb');
 
+let size_types = ''
+
 let men = 'Men'
 
 men_cb.addEventListener('click', () => {
-    filterBySizeType(men_cb, men)
+    // size_types.push(men)
+    size_types_m = stringTheList(size_types, men)
+    filterBySizeType(men_cb, size_types_m)
 })
 
 let women_cb = document.querySelector('#women-cb');
 let women = "Women"
 
 women_cb.addEventListener('click', () => {
-    filterBySizeType(women_cb, women)
+    // size_types.push(women)
+    size_types_w = stringTheList(size_types, women)
+    filterBySizeType(women_cb, size_types_w)
 })
 
 let child_cb = document.querySelector('#child-cb');
+
 let child = 'Child'
 
 child_cb.addEventListener('click', () => {
-    filterBySizeType(child_cb, child)
+    // size_types.push(child)
+    size_types_c = stringTheList(size_types, child)
+    filterBySizeType(child_cb, size_types_c)
 })
+
+let stringTheList = (past, added) => {
+    return `${past} ${added} `
+}
 
 
 
