@@ -12,3 +12,16 @@ class IndexView(TemplateView):
         context['products'] = Product.objects.order_by('-id')
         context['release_calendar_products'] = Product.objects.order_by('-id')[:4]
         return context
+
+
+class SingleView(DetailView):
+    model = Product
+    template_name = 'single.html'
+    context_object_name = 'product_detail'
+
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        context = super().get_context_data(**kwargs)
+        context['same_brand'] = Product.objects.filter(brand__title = product.brand.title)
+        context['sizes'] = Product_property.objects.order_by('-id')
+        return context

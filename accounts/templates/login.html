@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand" href="/">Compass<span>.</span></a>
+
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="text-center">
+        <div class="main-card col-12 mt-5 pt-2">
+            <div class="registrations">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="change-page" href="register.html" style="color: gray;"><span>Sign up</span></a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="actual-page" href="" style="color: black;"><span>Log In</span></a>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="line" style="width: 50%; 
+                    text-align: center; 
+                    border-bottom: 1px solid #bbb9b9; 
+                    line-height: 0.1em;
+                    margin: 10px 0 20px;">
+                        </div>
+                        <div class="line" style="width: 50%; 
+                    text-align: center; 
+                    border-bottom: 1px solid black; 
+                    line-height: 0.1em;
+                    margin: 10px 0 20px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-card pt-3">
+                    <div class="google card2 pt-2">
+
+                        <a href="#" style="color: black">
+                            <p><i class="fab fa-google" style="color: tomato;"></i> Continue with Google</p>
+                        </a>
+                    </div>
+                    <div class="facebook card2 pt-2">
+
+                        <a href="#" style="color: black">
+                            <p><i class="fab fa-facebook-f" style="color: #3b5998;"></i> Continue with Facebook</p>
+                        </a>
+                    </div>
+
+                    <div class="apple card2 pt-2">
+
+                        <a href="#" style="color: black">
+                            <p><i class="fab fa-apple"></i> Continue with Apple</p>
+                        </a>
+                    </div>
+                    <div class="twitter card2 pt-2">
+
+                        <a href="#" style="color: black">
+                            <p><i class="fab fa-twitter" style="color: #1da1f2;"></i> Continue with Twitter</p>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="login">
+                    <div class="mt-4 mb-3">
+                        <div class="line" style="width: 100%; 
+                    text-align: center; 
+                    border-bottom: 1px solid #c7c7c7; 
+                    line-height: 0.1em;
+                    margin: 10px 0 20px;">
+                            <span style="background:#fff; 
+                    padding:0 10px; color: #c7c7c7;">Or</span>
+                        </div>
+                    </div>
+                    <form class="form-login">
+                        <div class="fields">
+                            {% csrf_token %}
+                            {{form.non_field_error}}
+                            <div class="form-group">
+                                {{form.email}}
+                                {{form.email.errors}}
+                            </div>
+                            <div class="form-group">
+                                {{form.password}}
+                                {{form.password.errors}}
+                            </div>
+                            <div class="form-group" style="display:flex; justify-content:flex-end;">
+                                <a href="forget_password.html" class="forgot-password"
+                                    style=" width: 40%; height: 10%; font-size: 12px; color: #0F0F0F;">Forgot password?</a>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="btn btn-primary py-3 px-5 button"
+                                    style="width: 100%; background-color: #0d0d0d; border-color: #0d0d0d;">
+                            </div>
+                            <div class="form-group">
+                                <p class="last-login" style="font-size: 10px; color: #949494;">By logging in, you agree
+                                    to the <a href="#" style="color: black;">Terms of service</a> and <a href="#"
+                                        style="color: black;">Privacy Policy</a></p>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+{% endblock %}
