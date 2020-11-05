@@ -54,6 +54,7 @@ new Chart(document.getElementById("pie-chart"), {
         }]
     },
     options: {
+        tooltips : {enabled: false},
         title: {
         display: true,
         text: 'ITEM COUNT'
@@ -71,6 +72,7 @@ new Chart(document.getElementById("pie-chart2"), {
         }]
     },
     options: {
+        tooltips : {enabled: false},
         title: {
         display: true,
         text: 'MARKET VALUE'
