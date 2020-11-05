@@ -1,0 +1,35 @@
+.browse-description-container {
+    height: 270px;
+    background-image: url(https://images.contentstack.io/v3/assets/blt818b0c67cf450811/blt14176d5ded65d322/5e8ca91d5a326f2a9a34571f/browse-headersSneakers.jpg);
+}
+.browse-description-text {
+    max-width: 438px;
+}
+.sidebar-spans {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.browse-sidebar-checkbox {
+    width: 17px;
+    height: 17px;
+    border: 1px solid #d4d4d5;
+    border-radius: 2px;
+}
+.sidebar-sizes {
+    background-color: #f5f5f5;
+    /* width: 32px !important;
+    height: 32px; */
+    margin-right: 3px;
+    padding-top: 2px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.browse-sort-by {
+    border: 1px solid rgb(206, 206, 206);
+    padding: 15px 30px 0 30px;
+}
+.browse-filter-by {
+    display: none;
+    border: 1px solid rgb(206, 206, 206);
+    padding: 5px 20px 0 20px;
+}

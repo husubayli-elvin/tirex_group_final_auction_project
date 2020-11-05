@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}
+    <title>Compass</title>
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/custom-colums.css' %}">
+    {% endblock %}
+
+
+    <div class="responsive-navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">Compass<span>.</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+        
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="" class="nav-link">Browse</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Login</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
+                            <li class=""><a href="" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    {% block content %}
+    <div class="main">
+        <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">Compass<span>.</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+        
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="" class="nav-link">Browse</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Login</a></li>
+                            <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
+                            <li class=""><a href="" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        
+        <div class="head-preview text-center">
+            <h1 class="preview-header">Buy & Sell</h1>
+            <h1 class="preview-header" id="preview-header-two">Sneakers and Streetwear</h1>
+            <div class="preview-search">
+                <form action="">
+                    <input class="preview-search-input" type="text" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories">
+        <ul class="d-flex text-center categories-ul">
+            <div class="col-6 d-flex justify-content-center">
+                <div class="sneaker-label" style="width: 25%;">
+                <h4 class="text-center pb-2" style="border-bottom: 5px solid black;">Sneakers</h4>
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                <div class="street-label" class="mr-5" style="width: 25%;">
+                <h4>Streetwear</h4>
+                </div>
+            </div>
+        </ul>
+    </div>
+
+    <div class="popular-brends mb-5">
+        <h5 class="ml-3 mb-3">Popular Brands</h5>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-6">
+                    <img class="popular-images" src="{% static 'images/jordan.png' %}" alt="">
+                </div>
+                <div class="col-sm-3 col-6">
+                    <img class="popular-images" src="{% static 'images/presto.png' %}" alt="">
+                </div>
+                <div class="col-sm-3 col-6">
+                    <img class="popular-images" src="{% static 'images/yeezy350.png' %}" alt="">
+                </div>
+                <div class="col-sm-3 col-6">
+                    <img class="popular-images" src="{% static 'images/adidas.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="most-popular mb-5">
+        <h5 class="ml-3 mb-3">Most Popular <i class="fas fa-question-circle"></i></h5>
+        <div class="container-fluid">
+            <div class="row">
+                {% for product in products %}
+                    {% if product.brand.category.title == 'Sneakers' %}
+                    
+
+                <div class="custom-col-2 col-12">
+                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
+                        <img class="most-images" src="{{product.image.url}}" alt="">
+                        <p class="mt-2">{{ product.title }}</p>
+                        <h5>${{ product.current_price }}</h5>
+                        <small>1918 Sold</small>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %}
+
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="new-sneakers mb-5">
+        <h5 class="ml-3 mb-3">New <i class="fas fa-question-circle"></i></h5>
+        <div class="container-fluid">
+            <div class="row">
+                {% for product in products %}
+                    {% if product.brand.category.title == 'Sneakers' %}
+                    
+
+                <div class="custom-col-2 col-12">
+                    <div class="most-cards pl-1 pr-1 pt-1 pb-2">
+                        <img class="most-images" src="{{product.image.url}}" alt="">
+                        <p class="mt-2">{{ product.title }}</p>
+                        <h5>${{ product.current_price }}</h5>
+                        <small>1918 Sold</small>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <a href="" class="live-marketplace">Browse Thousands of Sneakers on our Live Marketplace</a>
+    </div>
+
+    <div class="release-calendar">
+        <h5 class="ml-3 mb-3">Release Calendar</h5>
+        <div class="container-fluid">
+            <div class="row">
+                {% for product in release_calendar_products %}
+                {% if product.brand.category.title == 'Sneakers' %}
+
+                <div class="col-sm-3 col-12 p-0">
+                    <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
+                        <h4>{{ product.added_at | date:"M | j" }}</h4>
+                        <img class="calendar-images" src="{{ product.image.url }}" alt="">
+                        <p class="mt-2">{{ product.title }}</p>
+                        <p>$300<p>
+                        <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>
+                    </div>
+                    
+                </div>
+                {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+ 
