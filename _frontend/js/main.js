@@ -41,3 +41,37 @@ $(document).ready(function () {
         }
         });
     });
+
+
+
+new Chart(document.getElementById("pie-chart"), {
+    type: 'pie',
+    data: {
+        datasets: [{
+        backgroundColor: ["#gray", "#bababa"],
+        data: [90,10]
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: 'ITEM COUNT'
+        }
+    }
+});
+
+new Chart(document.getElementById("pie-chart2"), {
+    type: 'pie',
+    data: {
+        datasets: [{
+        backgroundColor: ["#gray", "#bababa"],
+        data: [90,10]
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: 'MARKET VALUE'
+        }
+    }
+});
