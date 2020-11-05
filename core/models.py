@@ -44,6 +44,7 @@ class Product(models.Model):
     description = models.TextField(max_length=3000)
     condition = models.CharField(max_length=50)
     delivery_fee = models.DecimalField(max_digits=8, decimal_places=2)
+    release_date = models.IntegerField(null=True)
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE, db_index=True, related_name='product')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='product')
     category = models.ForeignKey('Category', on_delete=models.CASCADE, db_index=True, related_name='product')

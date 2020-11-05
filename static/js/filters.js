@@ -225,4 +225,80 @@ child_cb.addEventListener('click', () => {
 })
 
 
+let filterByPrices = (type) => {
+        data.price = type
+    
+        console.log(data.price)
+    
+        sendRequest(data)
+}
+
+let filterByYears = (type) => {
+    data.years = type
+
+    console.log(data.years)
+
+    sendRequest(data)
+}
+
+
+let checkThePrice = () => {
+let price_list_container = []
+document.querySelectorAll('.browse-sidebar-checkbox-prices').forEach((e)=> {
+    e.addEventListener('click',function() {
+        let price_list = []
+        start_price = this.getAttribute('startprice')
+        end_price = this.getAttribute('endprice')
+        price_list.push(start_price, end_price)
+
+        if (this.checked){
+            if (price_list.includes(this)==false){
+                price_list_container.push(price_list)
+            }
+            else {
+                console.log(e)
+                price_index = price_list.indexOf(e)
+                price_list.splice(price_index, 1)
+            }
+            
+        }
+        else {
+            price_list_index = price_list.indexOf(e)
+            price_list_container.splice(price_list_index, 1)
+        }
+        // price_list = getPriceRange(start_price, end_price)
+        filterByPrices( price_list_container)
+        // console.log(price_list_container)
+   })
+})
+    
+}
+
+checkThePrice()
+
+
+let checkReleaseYear = () => {
+    let years_list = []
+    document.querySelectorAll('.browse-sidebar-checkbox-year').forEach((e) => {
+        e.addEventListener('click', function() {
+        release_year = this.getAttribute('releaseyear')
+            if (this.checked) {
+                if (years_list.includes(release_year) == false){
+                    years_list.push(release_year)
+                }
+                else {
+                    years_index = years_list.indexOf(release_year)
+                    years_list.splice(years_index, 1)
+                }
+            }
+            else {
+                years_index = years_list.indexOf(release_year)
+                    years_list.splice(years_index, 1)
+            }
+            filterByYears(years_list)
+        })
+    })
+}
+
+checkReleaseYear()
 
