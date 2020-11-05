@@ -79,3 +79,40 @@ new Chart(document.getElementById("pie-chart2"), {
         }
     }
 });
+
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      datasets: [
+        {
+          data: [0, 20, 40, 80, 60, 100]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'RESELL PRICE PREMIUM'
+      }
+    }
+});
+
+
+new Chart(document.getElementById("bar-chart2"), {
+    type: 'bar',
+    data: {
+      datasets: [
+        {
+          data: [0, 60, 100]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'AVERAGE PRICE'
+      }
+    }
+});
