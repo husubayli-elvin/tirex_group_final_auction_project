@@ -102,6 +102,25 @@ footer {
     color: #808080;
 }
 
+.main-card {
+    border: 1px solid #e0e0e0;
+    width: auto;
+    margin: 0 auto;
+    display: inline-grid;
+
+}
+.card2 {
+    border: 1px solid black;
+    width: 100%;
+
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+
 @media (min-width: 361px) and (max-width: 767px) {
     .popular-images {
         width: 160px;

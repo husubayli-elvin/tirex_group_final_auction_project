@@ -1,0 +1,49 @@
+.custom-col-10 {
+    max-width: 100%;
+    display: flex;
+}
+.custom-col-5 {
+    max-width: 50%;
+    display: flex;
+}
+.custom-col-2 {
+    max-width: 20%;
+    display: flex;
+}
+
+@media (min-width: 361px) and (max-width: 767px) {
+    .custom-col-10 {
+        max-width: 100%;
+        display: flex;
+    }
+    .custom-col-5 {
+        max-width: 100%;
+        display: flex;
+    }
+    .custom-col-2 {
+        max-width: 100%;
+        display: flex;
+    }
+
+}
+
+
+@media (max-width: 360px) {
+    .custom-col-10 {
+        max-width: 100%;
+        display: flex;
+    }
+    .custom-col-5 {
+        max-width: 100%;
+        display: flex;
+    }
+    .custom-col-2 {
+        max-width: 100%;
+        display: flex;
+    }
+}
+
+
+@media (max-width: 1450px) {
+    
+}
