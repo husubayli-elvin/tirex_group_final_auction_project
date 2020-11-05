@@ -27,7 +27,6 @@ class SearchProductAPI(ListAPIView):
             queryset = queryset.filter(made_for__in=size_type)
         if price_list:
             for price in price_list:
-                # print(price)
                 queryset = queryset.filter(current_price__range=(price[0], price[1]))
         if release_year:
             queryset = queryset.filter(release_date__in=release_year)
