@@ -48,8 +48,9 @@ new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
     data: {
         datasets: [{
-        backgroundColor: ["#gray", "#bababa"],
-        data: [90,10]
+        backgroundColor: ["#bebebe", '#d3d3d3'],
+        data: [90,10],
+        hoverBackgroundColor :['white', 'white']
         }]
     },
     options: {
@@ -64,8 +65,9 @@ new Chart(document.getElementById("pie-chart2"), {
     type: 'pie',
     data: {
         datasets: [{
-        backgroundColor: ["#gray", "#bababa"],
-        data: [90,10]
+        backgroundColor: ['#bebebe', '#d3d3d3'],
+        data: [90,10],
+        hoverBackgroundColor :['white', 'white']
         }]
     },
     options: {
