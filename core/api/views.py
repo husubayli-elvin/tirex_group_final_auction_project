@@ -3,6 +3,8 @@ from rest_framework.viewsets import ModelViewSet
 from .serializers import ProductFilterSerializer
 from core.models import Product
 from rest_framework.response import Response
+from django.db.models import Q
+
 
 class SearchProductAPI(ListAPIView):
     serializer_class = ProductFilterSerializer
@@ -14,7 +16,7 @@ class SearchProductAPI(ListAPIView):
         size_type = self.request.data.get('size_type')
         price_list = self.request.data.get('price')
         release_year = self.request.data.get('years')
-        print(release_year)
+        print(price_list)
         queryset = Product.objects.order_by('-id')
 
         if title:
@@ -25,9 +27,13 @@ class SearchProductAPI(ListAPIView):
             queryset = queryset.filter(brand__title=brand)
         if size_type:
             queryset = queryset.filter(made_for__in=size_type)
+        print(price_list)
         if price_list:
+            queries = Q()
             for price in price_list:
-                queryset = queryset.filter(current_price__range=(price[0], price[1]))
+                queries = Q(current_price__range=(price)) | queries
+            
+            queryset = queryset.filter(queries)
         if release_year:
             queryset = queryset.filter(release_date__in=release_year)
 
