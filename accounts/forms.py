@@ -9,6 +9,7 @@ class RegisterForm(UserCreationForm):
             attrs={
                 'placeholder' : 'Password',
                 'class' : 'form-control',
+                'type' : 'hidden',
             }))
 
 
@@ -17,9 +18,9 @@ class RegisterForm(UserCreationForm):
         fields = ('first_name','last_name','email','password')
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'id':'first_name','placeholder':'First name', 'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'id':'last_name','placeholder':'Last name', 'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'id':'email','placeholder':'Email Address', 'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'id':'first_name','placeholder':'First name', 'class': 'form-control', 'type' : 'hidden'}),
+            'last_name': forms.TextInput(attrs={'id':'last_name','placeholder':'Last name', 'class': 'form-control', 'type' : 'hidden'}),
+            'email': forms.EmailInput(attrs={'id':'email','placeholder':'Email Address', 'class': 'form-control', 'type' : 'hidden'}),
         }
 
 
@@ -33,7 +34,7 @@ class LoginForm(AuthenticationForm):
             }))
 
     email = forms.CharField(
-        widget = forms.TextInput(
+        widget = forms.EmailInput(
             attrs={
                 'id': 'email',
                 'placeholder': 'Email Address',

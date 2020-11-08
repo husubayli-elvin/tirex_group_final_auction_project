@@ -9,15 +9,13 @@ from django.contrib.auth.views import LoginView, PasswordResetView, PasswordRese
 class RegisterView(CreateView):
     model = User
     form_class = RegisterForm
-    template_name = 'register.html'
+    template_name = 'register_page.html'
     success_url = reverse_lazy('accounts:login')
 
 
 class MainLoginView(LoginView):
-    
     form_class = LoginForm
-    template_name = 'login.html'
-    success_url = reverse_lazy('core:index-page')
+    template_name = 'login_page.html'
 
 
 class ForgetPasswordView(PasswordResetView):

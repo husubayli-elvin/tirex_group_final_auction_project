@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %}
+<title>Compass</title>
+{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
     {% endblock %}
     
 {% block header %}
@@ -22,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <a class="change-page" href="register.html" style="color: gray;"><span>Sign up</span></a>
+                            <a class="change-page" href="{% url 'accounts:register' %}" style="color: gray;"><span>Sign up</span></a>
                         </div>
                         <div class="col-md-6">
                             <a class="actual-page" href="" style="color: black;"><span>Log In</span></a>

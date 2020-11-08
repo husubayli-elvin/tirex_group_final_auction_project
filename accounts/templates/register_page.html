@@ -3,18 +3,18 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
     {% endblock %}
     
-{% block header %}
+
+
+    {% block content %}
     <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container d-flex justify-content-center">
             <a class="navbar-brand" href="/">Compass<span>.</span></a>
 
         </div>
     </nav>
-    {% endblock %}
-
-    {% block content %}
     <div class="text-center">
         <div class="main-card col-12 mt-5 pt-2">
             <div class="registrations">
@@ -24,7 +24,7 @@
                             <a class="actual-page" href="" style="color: black;"><span>Sign up</span></a>
                         </div>
                         <div class="col-md-6">
-                            <a class="change-page" href="login.html" style="color: gray;"><span>Log In</span></a>
+                            <a class="change-page" href="{% url 'accounts:login' %}" style="color: gray;"><span>Log In</span></a>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
