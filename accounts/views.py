@@ -7,25 +7,27 @@ from django.contrib.auth.views import LoginView, PasswordResetView, PasswordRese
 
 
 class RegisterView(CreateView):
+    model = User
     form_class = RegisterForm
     template_name = 'register.html'
     success_url = reverse_lazy('accounts:login')
 
 
-class LoginView(LoginView):
+class MainLoginView(LoginView):
+    
     form_class = LoginForm
     template_name = 'login.html'
-    success_url = 'core:index-page'
+    success_url = reverse_lazy('core:index-page')
 
 
-class ResetPasswordView(PasswordResetView):
+class ForgetPasswordView(PasswordResetView):
     form_class = ResetPasswordForm
     template_name = 'forget_password.html'
     success_url = reverse_lazy('accounts:login')
     email_template_name = 'password_reset_email.html'
 
 
-class ResetPasswordConfirmView(PasswordResetConfirmView):
+class ResetPasswordView(PasswordResetConfirmView):
     form_class = ResetPasswordConfirmForm
     template_name= "password_reset_confirm.html" 
     success_url = reverse_lazy('accounts:login')

@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    
 {% block header %}
     <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container d-flex justify-content-center">
