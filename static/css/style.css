@@ -106,6 +106,75 @@ footer {
     color: #808080;
 }
 
+.main-card {
+    border: 1px solid #e0e0e0;
+    width: 500px;
+    margin: 0 auto;
+    display: inline-grid;
+    border-radius: 3px;
+
+}
+.card2 {
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+.form-control{
+    border-radius: 3px;
+}
+
+
+.grid-tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    width: 23%;
+    height: 70px;
+    margin: 4px;
+}
+
+
+.tile-inner {
+    background: #fff;
+    border: 1px solid #e5e7ea;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 94px;
+    height: 70px;
+}
+
+.tile-inner:hover {
+    background-color: #fcedec;
+}
+
+.item-row{
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 2px dotted #e5e7ea;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.back {
+    background-color: rgb(255, 81, 95);
+}
+
+
+
+
 @media (min-width: 361px) and (max-width: 767px) {
     .popular-images {
         width: 160px;

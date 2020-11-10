@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compass</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/single.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-</head>
-
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Compass</title>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    {% endblock %}
+    
+{% block header %}
     <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container d-flex justify-content-center">
             <a class="navbar-brand" href="/">Compass<span>.</span></a>
 
         </div>
     </nav>
+    {% endblock %}
+
+    {% block content %}
 
     <div class="text-center">
         <div class="main-card col-12 mt-5 pt-2">
@@ -27,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <a class="change-page" href="register.html" style="color: gray;"><span>Sign up</span></a>
+                            <a class="change-page" href="{% url 'accounts:register' %}" style="color: gray;"><span>Sign up</span></a>
                         </div>
                         <div class="col-md-6">
                             <a class="actual-page" href="" style="color: black;"><span>Log In</span></a>
@@ -90,12 +88,15 @@
                     </div>
                     <form class="form-login">
                         <div class="fields">
+                            {% csrf_token %}
+                            {{form.non_field_error}}
                             <div class="form-group">
-                                <input type="text" class="form-control p-4" placeholder="Email Address"><span
-                                    class="floating-label"></span>
+                                {{form.email}}
+                                {{form.email.errors}}
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control p-4" placeholder="Password">
+                                {{form.password}}
+                                {{form.password.errors}}
                             </div>
                             <div class="form-group" style="display:flex; justify-content:flex-end;">
                                 <a href="forget_password.html" class="forgot-password"
@@ -119,19 +120,4 @@
             </div>
         </div>
 
-
-
-        <script src="js/main.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</body>
-
-</html>
+{% endblock %}
