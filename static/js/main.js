@@ -22,7 +22,7 @@ let change_color = document.querySelectorAll(".selection");
 
 
 change_color.forEach( i => {
-    i.addEventListener('click', function(e){
+    i.addEventListener('click', function(){
         this.classList.add('back')
         change_color.forEach( i => {
             if( this != i){
@@ -37,5 +37,3 @@ change_color.forEach( i => {
     });
 
 });
-
-

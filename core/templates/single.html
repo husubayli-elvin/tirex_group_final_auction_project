@@ -181,7 +181,7 @@
         </div>
     </div>
 
-    <div class="product-image-main text-center mb-5">
+    <div class="product-image-main text-center mb-5 mt-5">
         <div>
             <img class="product-image" src="{{ product_detail.image.url }}" alt="">
         </div>
@@ -241,3 +241,8 @@
     <div>
         
     {% endblock %}
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+
+    <script src="{% static 'js/single.js' %}"></script>

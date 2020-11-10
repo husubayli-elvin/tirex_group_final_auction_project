@@ -18,33 +18,32 @@
     {% endblock %}
 
     {% block content %}
-    <div class="text-center">
+    <div class="text-center mb-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-7">
                     <div class="sellbuy">
                         <div class="item-header">
                             <div class="item-name pt-5">
-                                <h2>Nike Air Force 1 Low
-                                    Orange Skeleton</h2>
+                                <h2>{{ selling_product_detail.title }}</h2>
                             </div>
                             <div class="item-bid d-flex justify-content-center">
                                 <div class="high-bid">
-                                    <span style="color: gray;">Highest Bid:</span><span class="bold pr-2">210$ </span>
+                                    <span style="color: gray;">Highest Bid:</span><span class="bold pr-2"> ${{ selling_product_detail.current_price }}</span>
                                 </div>
                                 <div class="line pl-2 pr-5" style=" 
                                         text-align: center; 
                                         border-left: 1px solid #000; 
                                         line-height: 3 em;">
                                     <div class="low-ask">
-                                        <span style="color: gray;"> Lowest Ask:</span><span class="bold">176$</span>
+                                        <span style="color: gray;"> Lowest Ask:</span><span class="bold"> ${{ selling_product_detail.retail_price }}</span>
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div class="item-image">
-                                <img src="images/ezgif.com-webp-to-jpg.jpg" width="70%" height="70%">
+                            <div class="item-image mt-5">
+                                <img src="{{selling_product_detail.image.url}}" width="70%" height="70%">
                             </div>
 
                         </div>
@@ -52,7 +51,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="size-select pt-5">
-                        <a href="sell_single.html">
+                        <a href="sell_single.html" style="text-decoration: none;">
                             <div class="" style="text-align: left; padding: 20px;
                             background: #fff;
                             border: 1px solid #e5e7ea;
@@ -61,7 +60,7 @@
                             cursor: pointer;
                             font-size: 16px;
                             font-weight: 600;">
-                                <h5 style="color: black;">U.S. Men's Size 4.5</h5>
+                                <h5 style="color: black;">U.S. {{ selling_product_detail.made_for }}'s Size 4.5</h5>
                             </div>
                         </a>
                         <div class="choose-size pt-4">
@@ -97,7 +96,7 @@
                                         Transaction Fee (9.5%)
                                     </div>
                                     <div class="">
-                                        -$16.15
+                                        ${{ selling_product_detail.delivery_fee }}
                                     </div>
                                 </div>
                                 <div class="item-row d-flex">
@@ -121,7 +120,7 @@
                                         Total Payout
                                     </div>
                                     <div class="">
-                                        $148.75
+                                        ${{selling_product_detail.current_price}}
                                     </div>
                                 </div>
                             </div>
@@ -144,4 +143,8 @@
 
             </div>
         </div>
+
+        <script src="{% static 'js/main.js' %}"></script>
         {% endblock %}
+
+        

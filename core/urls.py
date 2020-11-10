@@ -10,5 +10,5 @@ urlpatterns = [
     path('streetwear/', views.StreetwearView.as_view(), name='streetwear-page'),
     path('about/', views.AboutUsView.as_view(), name='about-page'),
     path('product/<slug:slug>', views.SingleView.as_view(), name='product-detail'),
-    path('sell/<slug:slug>', views.SellProductView.as_view(), name='sell-product'),
+    path('sell_it/<slug:slug>', views.SellProductView.as_view(), name='sell-product'),
 ]

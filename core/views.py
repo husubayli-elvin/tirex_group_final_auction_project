@@ -50,3 +50,9 @@ class SingleView(DetailView):
 class SellProductView(DetailView):
     model = Product
     template_name = 'sell_confirmation.html'
+    context_object_name = 'selling_product_detail'
+
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        context = super().get_context_data(**kwargs)
+        return context
