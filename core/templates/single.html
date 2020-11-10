@@ -80,7 +80,7 @@
                 <div class="mt-3 ml-3">
                     <div class="d-flex" style="margin-bottom: -10px;">
                     <span class="mr-2" style="color: #999; margin-top: 5px;">Last Sale</span>
-                    <h3>{{ product_detail.current_price }}</h3>
+                    <h3>${{ product_detail.current_price }}</h3>
                     <p class="ml-2 mt-1" style="font-size: 18px; color: rgb(255, 86, 98);">▼ -$4
                         (-2%)</p>
                     </div>
@@ -93,7 +93,7 @@
                 <div style="background-color: rgb(0, 161, 99); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(37, 139, 56); padding-right: 13px; padding-left: 13px;">
-                    <h3 style="color: white;">{{ product_detail.current_price }}</h3>
+                    <h3 style="color: white;">${{ product_detail.current_price }}</h3>
                     <span style="color: #c6e6c2;">Lowest Ask</span>
                         </div>
                         
@@ -115,7 +115,7 @@
                 <div style="background-color: rgb(255, 86, 98); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(207, 73, 79); padding-right: 13px; padding-left: 13px;">
-                    <h3 style="color: white;">{{ product_detail.retail_price }}</h3>
+                    <h3 style="color: white;">${{ product_detail.retail_price }}</h3>
                     <span style="color: #ffcfcf;">Highest Bid</span>
                         </div>
                         
@@ -228,7 +228,7 @@
                         <div class="most-cards pl-1 pr-1 pt-1 pb-2">
                             <img class="most-images" src="{{ product.image.url }}" alt="">
                             <p class="mt-2">{{ product.title }}</p>
-                            <h5>{{ product.current_price }}</h5>
+                            <h5>${{ product.current_price }}</h5>
                             <small>1918 Sold</small>
                         </div>
                         

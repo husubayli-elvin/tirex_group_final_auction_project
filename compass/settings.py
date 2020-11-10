@@ -93,8 +93,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'compass',
-        'USER': 'kenan',
-        'PASSWORD': '12345',
+        'USER': 'muradaghazada',
+        'PASSWORD': '885522',
         'PORT': '5432',
         'HOST': '127.0.0.1'
     }

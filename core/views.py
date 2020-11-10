@@ -34,3 +34,19 @@ class BrowseListView(ListView):
 
 class AboutUsView(TemplateView):
     template_name = "about.html"
+
+class SingleView(DetailView):
+    model = Product
+    template_name = 'single.html'
+    context_object_name = 'product_detail'
+
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        context = super().get_context_data(**kwargs)
+        context['same_brand'] = Product.objects.filter(brand__title = product.brand.title)
+        context['sizes'] = Product_property.objects.order_by('-id')
+        return context
+
+class SellProductView(DetailView):
+    model = Product
+    template_name = 'sell_confirmation.html'

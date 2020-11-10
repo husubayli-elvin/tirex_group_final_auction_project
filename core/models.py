@@ -1,5 +1,7 @@
 from django.db import models
 from accounts.models import User
+from django.urls import reverse_lazy
+from .common import slugify
 
 
 class User_bids(models.Model):
@@ -45,6 +47,7 @@ class Product(models.Model):
     condition = models.CharField(max_length=50)
     delivery_fee = models.DecimalField(max_digits=8, decimal_places=2)
     release_date = models.IntegerField(null=True)
+    slug = models.SlugField(max_length=255, null=True, blank=True)
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE, db_index=True, related_name='product')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='product')
     category = models.ForeignKey('Category', on_delete=models.CASCADE, db_index=True, related_name='product')
@@ -58,11 +61,16 @@ class Product(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-    def save(self):
-        super(Product, self).save()
+    def save(self, *args, **kwargs):
+        super(Product, self).save(*args, **kwargs)
         if not self.current_price:
             self.current_price = self.retail_price
             super(Product, self).save()
+        self.slug = f'{slugify(self.title)}-{slugify(self.brand.title)}'
+        super(Product, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse_lazy("core:product-detail", kwargs={"slug": self.slug})
             
 
 class Property_name(models.Model):
