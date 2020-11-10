@@ -56,3 +56,13 @@ class SellProductView(DetailView):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
         return context
+
+class SellSizeProductView(DetailView):
+    model = Product
+    template_name = 'sell_single.html'
+    context_object_name = 'selling_size_product_detail'
+
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        context = super().get_context_data(**kwargs)
+        return context

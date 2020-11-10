@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}
     <title>Compass</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/single.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-</head>
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    {% endblock %}
 
-<body>
+    {% block header %}
     <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
 
         <a class="navbar-brand" href="/">Compass<span>.</span></a>
 
 
     </nav>
+    {% endblock %}
 
+    {% block content %}
     <div class="text-center">
         <div class="container-fluid">
             <div class="row">
@@ -28,26 +24,25 @@
                     <div class="sellbuy">
                         <div class="item-header">
                             <div class="item-name pt-5">
-                                <h2>Nike Air Force 1 Low
-                                    Orange Skeleton</h2>
+                                <h2>{{ selling_size_product_detail.title }}</h2>
                             </div>
                             <div class="item-bid d-flex justify-content-center">
                                 <div class="high-bid">
-                                    <span style="color: gray;">Highest Bid:</span><span class="bold pr-2">210$ </span>
+                                    <span style="color: gray;">Highest Bid:</span><span class="bold pr-2"> ${{ selling_size_product_detail.current_price }}</span>
                                 </div>
                                 <div class="line pl-2 pr-5" style=" 
                                         text-align: center; 
                                         border-left: 1px solid #000; 
                                         line-height: 3 em;">
                                     <div class="low-ask">
-                                        <span style="color: gray;"> Lowest Ask:</span><span class="bold">176$</span>
+                                        <span style="color: gray;"> Lowest Ask:</span><span class="bold"> ${{ selling_size_product_detail.retail_price }}</span>
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div class="item-image">
-                                <img src="images/ezgif.com-webp-to-jpg.jpg" width="70%" height="70%">
+                            <div class="item-image mt-5">
+                                <img src="{{ selling_size_product_detail.image.url }}" width="70%" height="70%">
                             </div>
 
                         </div>
@@ -59,7 +54,7 @@
                             <h3>Select Size</h3>
                         </div>
                         <div class="" style="text-align: left;">
-                            U.S. Men's Sizes | Highest Bids
+                            U.S. {{selling_size_product_detail.made_for}}'s Sizes | Highest Bids
                         </div>
                         <div class="choose-size d-flex pt-4" style="flex-flow: row wrap;
                                                                 -moz-box-align: center;
@@ -231,21 +226,4 @@
 
             </div>
         </div>
-
-
-
-
-        <script src="js/main.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</body>
-
-</html>
+        {% endblock %}

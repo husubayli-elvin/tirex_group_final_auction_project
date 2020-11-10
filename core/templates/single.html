@@ -69,7 +69,10 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             {% for size in sizes %}
+                            
+                                {% if size.property.property_name.category == product_detail.category %}
                             <button class="dropdown-item" type="button">{{ size.property }}</button>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>
