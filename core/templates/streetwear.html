@@ -110,7 +110,7 @@
 
                 <div class="custom-col-2 col-12">
                     <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="{{product.image.url}}" alt="">
+                        <a href="{{ product.get_absolute_url }}"><img class="most-images" src="{{product.image.url}}" alt=""></a>
                         <p class="mt-2">{{ product.title }}</p>
                         <h5>${{ product.current_price }}</h5>
                         <small>1918 Sold</small>
@@ -132,7 +132,7 @@
 
                 <div class="custom-col-2 col-12">
                     <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="{{product.image.url}}" alt="">
+                        <a href="{{ product.get_absolute_url }}"><img class="most-images" src="{{product.image.url}}" alt=""></a>
                         <p class="mt-2">{{ product.title }}</p>
                         <h5>${{ product.current_price }}</h5>
                         <small>1918 Sold</small>
@@ -145,7 +145,7 @@
     </div>
 
     <div class="text-center mb-5">
-        <a href="" class="live-marketplace">Browse Thousands of Sneakers on our Live Marketplace</a>
+        <a href="{% url 'core:browse-list' %}" class="live-marketplace">Browse Thousands of Sneakers on our Live Marketplace</a>
     </div>
 
     <div class="release-calendar">
@@ -157,7 +157,7 @@
                 <div class="col-sm-3 col-12 p-0">
                     <div class="calendar-cards pl-2 pr-2 pt-2 pb-3">
                         <h4>{{ product.added_at | date:"M | j" }}</h4>
-                        <img class="calendar-images" src="{{ product.image.url }}" alt="">
+                        <a href="{{ product.get_absolute_url }}"><img class="calendar-images" src="{{ product.image.url }}" alt=""></a>
                         <p class="mt-2">{{ product.title }}</p>
                         <p>$300<p>
                         <button style="background: transparent; border: 2px solid #08a05c; color: #08a05c;">BUY</button>

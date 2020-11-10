@@ -44,7 +44,7 @@ class SingleView(DetailView):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
         context['same_brand'] = Product.objects.filter(brand__title = product.brand.title)
-        context['sizes'] = Product_property.objects.order_by('-id')
+        context['sizes'] = Property.objects.order_by('-id')
         return context
 
 class SellProductView(DetailView):
@@ -65,4 +65,5 @@ class SellSizeProductView(DetailView):
     def get_context_data(self, **kwargs):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
+        context['sizes'] = Property.objects.order_by('-id')
         return context

@@ -66,12 +66,11 @@
                     <div class="dropdown">
                         <p class="all-p dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 24px;">All</p> 
                         <!-- <p class="ml-3 mt-1" style="color: #999;"><i class="fas fa-chevron-down"></i></p> -->
-
+                        <!-- <h1>{{sizes}}</h1> -->
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             {% for size in sizes %}
-                            
-                                {% if size.property.property_name.category == product_detail.category %}
-                            <button class="dropdown-item" type="button">{{ size.property }}</button>
+                                {% if size.property_name.category == product_detail.category %}
+                            <button class="dropdown-item" type="button">{{ size }}</button>
                                 {% endif %}
                             {% endfor %}
                         </div>
@@ -92,6 +91,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="bid-button mt-3 ml-5">
                 <div style="background-color: rgb(0, 161, 99); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
@@ -114,6 +114,7 @@
                
             </div>
 
+            <a href="{% url 'core:sell-size-product' product_detail.slug %}" style="color: black;">
             <div class="bid-button mt-3 ml-4">
                 <div style="background-color: rgb(255, 86, 98); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
@@ -135,6 +136,7 @@
                 </div>
                
             </div>
+        </a>
         </div>
     </div>
 

@@ -60,162 +60,23 @@
                                                                 -moz-box-align: center;
                                                                 align-items: center;
                                                                 margin-left: 0px;">
+
+                            {% for size in sizes %}
+                            {% if size.property_name.category == selling_size_product_detail.category %}
                             <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
+                                <a href="{% url 'core:sell-product' selling_size_product_detail.slug %}" style="text-decoration: none;"> 
                                     <div class="tile-inner">
                                         <div class="tile-value" style="color: black;">
-                                            US 4
+                                            {{size}}
                                         </div>
                                         <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
+                                            ${{selling_size_product_detail.current_price}} 
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid-tile">
-                                <a href="sell_confirmation.html"> 
-                                    <div class="tile-inner">
-                                        <div class="tile-value" style="color: black;">
-                                            US 4
-                                        </div>
-                                        <div class="tile-subvalue" style="color: #ff5a5f;">
-                                            $178
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                            {% endif %}
+                            {% endfor %}
                             
 
                         </div>
