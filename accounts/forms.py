@@ -18,6 +18,14 @@ class RegisterForm(UserCreationForm):
                 'class' : 'form-control',
             }))
 
+    username = forms.CharField(
+        widget = forms.TextInput(
+            attrs={
+                'id':'username',
+                'placeholder' : 'Username',
+                'class' : 'form-control',
+            }))
+
     first_name = forms.CharField(
         widget = forms.TextInput(
             attrs={
@@ -44,7 +52,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('first_name','last_name','email','password1','password2')
+        fields = ('username','first_name','last_name','email','password1','password2')
 
 
 
@@ -57,17 +65,17 @@ class LoginForm(AuthenticationForm):
                 'class' : 'form-control',
             }))
 
-    email = forms.CharField(
-        widget = forms.EmailInput(
+    username = forms.CharField(
+        widget = forms.TextInput(
             attrs={
-                'id': 'email',
-                'placeholder': 'Email Address',
+                'id': 'username',
+                'placeholder': 'Username',
                 'class': 'form-control'
             }))
 
     class Meta:
         model = User
-        fields = ['email', 'password']
+        fields = ['username', 'password']
 
 
 
