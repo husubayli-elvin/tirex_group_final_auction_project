@@ -18,15 +18,34 @@ class RegisterForm(UserCreationForm):
                 'class' : 'form-control',
             }))
 
+    first_name = forms.CharField(
+        widget = forms.TextInput(
+            attrs={
+                'id':'first_name',
+                'placeholder' : 'First name',
+                'class' : 'form-control',
+            }))
+
+    last_name = forms.CharField(
+        widget = forms.TextInput(
+            attrs={
+                'id':'last_name',
+                'placeholder' : 'Last name',
+                'class' : 'form-control',
+            }))
+
+    email = forms.CharField(
+        widget = forms.EmailInput(
+            attrs={
+                'id':'email',
+                'placeholder' : 'Email Address',
+                'class' : 'form-control',
+            }))
+
     class Meta:
         model = User
         fields = ('first_name','last_name','email','password1','password2')
 
-        widgets = {
-            'first_name': forms.TextInput(attrs={'id':'first_name','placeholder':'First name', 'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'id':'last_name','placeholder':'Last name', 'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'id':'email','placeholder':'Email Address', 'class': 'form-control'}),
-        }
 
 
 
