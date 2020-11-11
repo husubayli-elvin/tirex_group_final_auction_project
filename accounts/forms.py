@@ -4,23 +4,22 @@ from .models import User
 
 
 class RegisterForm(UserCreationForm):
-    password = forms.CharField(
+    password1 = forms.CharField(
         widget = forms.PasswordInput(
             attrs={
                 'placeholder' : 'Password',
                 'class' : 'form-control',
-                'type' : 'hidden',
             }))
 
 
     class Meta:
         model = User
-        fields = ('first_name','last_name','email','password')
+        fields = ('first_name','last_name','email','password1')
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'id':'first_name','placeholder':'First name', 'class': 'form-control', 'type' : 'hidden'}),
-            'last_name': forms.TextInput(attrs={'id':'last_name','placeholder':'Last name', 'class': 'form-control', 'type' : 'hidden'}),
-            'email': forms.EmailInput(attrs={'id':'email','placeholder':'Email Address', 'class': 'form-control', 'type' : 'hidden'}),
+            'first_name': forms.TextInput(attrs={'id':'first_name','placeholder':'First name', 'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'id':'last_name','placeholder':'Last name', 'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'id':'email','placeholder':'Email Address', 'class': 'form-control'}),
         }
 
 
