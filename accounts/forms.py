@@ -7,14 +7,20 @@ class RegisterForm(UserCreationForm):
     password1 = forms.CharField(
         widget = forms.PasswordInput(
             attrs={
-                'placeholder' : 'Password',
+                'placeholder' : 'Password1',
                 'class' : 'form-control',
             }))
 
+    password2 = forms.CharField(
+        widget = forms.PasswordInput(
+            attrs={
+                'placeholder' : 'Password2',
+                'class' : 'form-control',
+            }))
 
     class Meta:
         model = User
-        fields = ('first_name','last_name','email','password1')
+        fields = ('first_name','last_name','email','password1','password2')
 
         widgets = {
             'first_name': forms.TextInput(attrs={'id':'first_name','placeholder':'First name', 'class': 'form-control'}),
