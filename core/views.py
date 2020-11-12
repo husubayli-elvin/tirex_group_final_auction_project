@@ -88,3 +88,6 @@ class BuySizeProductView(DetailView):
         context = super().get_context_data(**kwargs)
         context['sizes'] = Property.objects.order_by('-id')
         return context
+
+class HelpView(TemplateView):
+    template_name = "help.html"
