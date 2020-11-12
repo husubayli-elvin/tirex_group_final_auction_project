@@ -9,34 +9,13 @@
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
     {% endblock %}
 
-    {% block content %}
-
-    <nav style="padding: 10px;" class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a style="margin-left: 0;" class="navbar-brand" href="/">Compass<span>.</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
-            </button>
     
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><input style="outline: none;" class="single-input" type="text" placeholder="Search for brand, color, etc."></li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    
-                    <li class="nav-item active"><a href="" class="nav-link">Browse</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Help</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
-                        <li class=""><a href="" class="nav-link"><button style="border: 1px solid black; background-color: transparent; color: black; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;" class="sell-button">Sell</button></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
 
+    {% block content %}
     <div class="about-main">
         <div class="double-about-main ml-sm-5 ml-1 pt-5 pb-5" style="max-width: 50%;">
             <h1 class="about-main-header mb-4" style="color: white; font-size: 48px;">THE STOCK MARKET FOR THINGS</h1>
