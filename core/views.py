@@ -67,3 +67,24 @@ class SellSizeProductView(DetailView):
         context = super().get_context_data(**kwargs)
         context['sizes'] = Property.objects.order_by('-id')
         return context
+
+class BuyProductView(DetailView):
+    model = Product
+    template_name = 'buy_confirmation.html'
+    context_object_name = 'buying_product_detail'
+
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        context = super().get_context_data(**kwargs)
+        return context
+
+class BuySizeProductView(DetailView):
+    model = Product
+    template_name = 'buy_single.html'
+    context_object_name = 'buying_size_product_detail'
+
+    def get_context_data(self, **kwargs):
+        product = self.get_object()
+        context = super().get_context_data(**kwargs)
+        context['sizes'] = Property.objects.order_by('-id')
+        return context

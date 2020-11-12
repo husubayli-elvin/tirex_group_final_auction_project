@@ -62,9 +62,6 @@ footer {
 .popular-images {
     width: 100%;
 }
-.most-popular {
-    /* margin-left: 200px; */
-}
 .most-images {
     width: 100%;
 }
@@ -170,6 +167,10 @@ a:hover {
 
 .back {
     background-color: rgb(255, 81, 95);
+}
+
+.sell-back {
+    background-color: rgb(8, 160, 92) !important;
 }
 
 
