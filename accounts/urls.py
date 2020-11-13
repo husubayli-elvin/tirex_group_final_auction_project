@@ -4,6 +4,7 @@ from .views import RegisterView, MainLoginView, ForgetPasswordView, ResetPasswor
 from django.contrib.auth.views import LogoutView
 
 app_name = 'accounts'
+
 urlpatterns = [
     path('register/', RegisterView.as_view(),name='register'),
     path('login/', MainLoginView.as_view(), name='login'),

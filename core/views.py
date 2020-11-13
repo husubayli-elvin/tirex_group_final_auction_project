@@ -26,7 +26,6 @@ class BrowseListView(ListView):
     model = Product
     context_object_name = 'browse_list'
     template_name = 'browse.html'
-    queryset = Product.objects.order_by('-id')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -34,10 +33,11 @@ class BrowseListView(ListView):
 
     def get_queryset(self):
         title = self.request.GET.get('title')
+        queryset = Product.objects.order_by('-id')
 
         if title:
-            queryset = Product.objects.filter(title__icontains=title)
-            return queryset
+            queryset = queryset.filter(title__icontains=title)
+        return queryset
 
 class AboutUsView(TemplateView):
     template_name = "about.html"
