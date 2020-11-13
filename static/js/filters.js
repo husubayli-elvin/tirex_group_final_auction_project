@@ -16,7 +16,7 @@ let sendRequest = (data) => {
         body: JSON.stringify(data)
     }).then(response => response.json())
     .then(data => {
-        // console.log(data)
+        
         
             if (data.length == 0) {
                 document.querySelector('.product-listt').innerHTML = `
@@ -27,10 +27,11 @@ let sendRequest = (data) => {
                 document.querySelector('.product-listt').innerHTML = ""
                 data.forEach(e => {
                     // console.log(e)
+                    console.log(e.url)
                 document.querySelector('.product-listt').innerHTML += `
                 <div class="col-sm-3 col-6 p-3 p-sm-4 p-xl-5">
                      <div class="most-cards pl-1 pr-1 pt-1 pb-2">
-                        <img class="most-images" src="${e.image}" alt="">
+                        <a href="${e.url}"><img class="most-images" src="${e.image}" alt=""></a>
                          <p class="mt-2">${e.title}</p>
                         <h5>$${e.current_price}</h5>
                         <small>1918 Sold</small>

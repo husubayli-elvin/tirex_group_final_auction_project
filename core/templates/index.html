@@ -58,8 +58,8 @@
             <h1 class="preview-header">Buy & Sell</h1>
             <h1 class="preview-header" id="preview-header-two">Sneakers and Streetwear</h1>
             <div class="preview-search">
-                <form action="">
-                    <input class="preview-search-input" type="text" placeholder="Search...">
+                <form action="{% url 'core:browse-list' %}" class="search-form">
+                    <input class="single-input preview-search-input" name="title" type="text" placeholder="Search..." value="{{request.GET.title}}">
                 </form>
             </div>
         </div>

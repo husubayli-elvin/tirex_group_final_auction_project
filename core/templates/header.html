@@ -10,7 +10,7 @@
             <form action=""  class="search-form">
                 {% csrf_token %}
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><input style="outline: none;" class="single-input" type="text" placeholder="Search for brand, color, etc."></li>
+                <li class="nav-item"><input style="outline: none;" class="single-input" type="text" placeholder="Search for brand, color, etc." value="{{request.GET.title}}"></li>
             </ul>
         </form>
             <ul class="navbar-nav ml-auto">

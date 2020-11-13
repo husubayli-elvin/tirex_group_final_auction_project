@@ -32,6 +32,13 @@ class BrowseListView(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
+    def get_queryset(self):
+        title = self.request.GET.get('title')
+
+        if title:
+            queryset = Product.objects.filter(title__icontains=title)
+            return queryset
+
 class AboutUsView(TemplateView):
     template_name = "about.html"
 
