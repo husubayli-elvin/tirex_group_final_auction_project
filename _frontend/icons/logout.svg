@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>5FB0F47C-643B-4932-88D4-96D3C0C3CBAB@1x</title>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="WebAccount-Temporary" transform="translate(-16.000000, -719.000000)" stroke="#000000" stroke-width="1.5">
+            <g id="Group-4-Copy-2" transform="translate(0.000000, 696.000000)">
+                <g id="power-button" transform="translate(16.000000, 23.000000)">
+                    <line x1="12" y1="1.498" x2="12" y2="11.248" id="Shape"></line>
+                    <path d="M9,5.011 C4.86735994,6.4721089 2.38838374,10.6979987 3.12961296,15.0181992 C3.87084218,19.3383997 7.61667329,22.4962814 12,22.4962814 C16.3833267,22.4962814 20.1291578,19.3383997 20.870387,15.0181992 C21.6116163,10.6979987 19.1326401,6.4721089 15,5.011" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
