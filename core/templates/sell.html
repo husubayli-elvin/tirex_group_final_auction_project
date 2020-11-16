@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Compass</title>
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/custom-colums.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hide_footer.css' %}">
+    {% endblock %}
+
+    {% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
+
+        <a class="navbar-brand" href="/">Compass<span>.</span></a>
+
+
+    </nav>
+
+    <div class="text-center">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-search pt-5">
+                        <div class="product-search-header">
+                            <h1>Choose a product</h1>
+                            <div class="sub-header">Find the product you're looking for to continue</div>
+                        </div>
+                        <div class="Search-box pt-5">
+                            <input id="site-search" type="search" placeholder="Search for brand, color, etc." class="searchbox input-text form-control p-4" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" value="" style="width: 450px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

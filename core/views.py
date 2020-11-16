@@ -25,3 +25,15 @@ class SingleView(DetailView):
         context['same_brand'] = Product.objects.filter(brand__title = product.brand.title)
         context['sizes'] = Product_property.objects.order_by('-id')
         return context
+
+
+class SellView(TemplateView):
+    template_name = 'sell.html'
+
+
+class SellSingleView(DeleteView):
+    template_name = 'sell_single.html'
+
+
+class SellConfirmationView(DetailView):
+    template_name = 'sell_confirmation.html'
