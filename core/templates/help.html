@@ -32,8 +32,11 @@
             <h1 class="preview-header">What can we help you</h1>
             <h1 class="preview-header mb-4" id="preview-header-two">with?</h1>
             <div class="preview-search">
-                <form action="">
-                    <input class="help-search-input" type="text" placeholder="Search...">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form.non_field_error}}
+                    {{form.text}}
+                    {{form.text.errors}}
                 </form>
             </div>
         </div>

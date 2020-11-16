@@ -44,10 +44,16 @@
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="{% url 'core:browse-list' %}" class="nav-link">Browse</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="{% url 'core:about-page' %}" class="nav-link">About</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                            {% if request.user.is_authenticated %}
+
+                            <li class="nav-item"><a href="" class="nav-link">My Account</a></li>
+
+                            {% else %}
                             <li class="nav-item"><a href="" class="nav-link">Login</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
+                            {% endif %}
                             <li class=""><a href="" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
                     </ul>
                 </div>
@@ -58,8 +64,8 @@
             <h1 class="preview-header">Buy & Sell</h1>
             <h1 class="preview-header" id="preview-header-two">Authentic Streetwear</h1>
             <div class="preview-search">
-                <form action="">
-                    <input class="preview-search-input" type="text" placeholder="Search...">
+                <form action="{% url 'core:browse-list' %}" class="search-form">
+                    <input class="single-input preview-search-input" name="title" type="text" placeholder="Search..." value="{{request.GET.title}}">
                 </form>
             </div>
         </div>

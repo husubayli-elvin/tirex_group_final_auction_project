@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
-from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property
+from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property, Question
+from .forms import AskQuestionForm
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -96,5 +98,12 @@ class BuySizeProductView(DetailView):
         context['sizes'] = Property.objects.order_by('-id')
         return context
 
-class HelpView(TemplateView):
+class HelpView(CreateView):
     template_name = "help.html"
+    model = Question
+    form_class = AskQuestionForm
+    success_url = reverse_lazy('core:help-page')
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)

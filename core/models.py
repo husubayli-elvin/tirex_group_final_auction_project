@@ -21,7 +21,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name = 'Category'
-        verbose_name_plural = 'Categorys'
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return f'{self.title}'
@@ -99,3 +99,17 @@ class Product_property(models.Model):
     in_stock = models.BinaryField()
     property = models.ForeignKey('Property', on_delete=models.CASCADE, db_index=True, related_name='product_property')
     product = models.ForeignKey('Product', on_delete=models.CASCADE, db_index=True, related_name='product_property')
+
+class Question(models.Model):
+    text = models.TextField(max_length=3000)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='question')
+
+    added_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Question'
+        verbose_name_plural = 'Questions'
+
+    def __str__(self):
+        return f'{self.owner} - {self.text}'
