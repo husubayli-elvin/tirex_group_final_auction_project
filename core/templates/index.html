@@ -20,7 +20,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="{% url 'core:browse-list' %}" class="nav-link">Browse</a></li>
                             <li class="nav-item"><a href="{% url 'core:about-page' %}" class="nav-link">About</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                            <li class="nav-item"><a href="{% url 'core:help-page' %}" class="nav-link">Help</a></li>
                             {% if request.user.is_authenticated %}
 
                             <li class="nav-item"><a href="" class="nav-link">Profile</a></li>
@@ -50,14 +50,14 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="{% url 'core:browse-list' %}" class="nav-link">Browse</a></li>
                             <li class="nav-item"><a href="{% url 'core:about-page' %}" class="nav-link">About</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                            <li class="nav-item"><a href="{% url 'core:help-page' %}" class="nav-link">Help</a></li>
                             {% if request.user.is_authenticated %}
 
                             <li class="nav-item"><a href="" class="nav-link">My Account</a></li>
 
                             {% else %}
-                            <li class="nav-item"><a href="" class="nav-link">Login</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
+                            <li class="nav-item"><a href="{% url 'accounts:login' %}" class="nav-link">Login</a></li>
+                            <li class="nav-item"><a href="{% url 'accounts:register' %}" class="nav-link">Sign up</a></li>
                             {% endif %}
                             <li class=""><a href="" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
                     </ul>
@@ -97,16 +97,24 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-6">
-                    <img class="popular-images" src="{% static 'images/jordan.png' %}" alt="">
+                    <a href="{% url 'core:browse-list' %}?title=Jordan">
+                        <img class="popular-images" src="{% static 'images/jordan.png' %}" alt="">
+                    </a>
                 </div>
                 <div class="col-sm-3 col-6">
+                    <a href="{% url 'core:browse-list' %}?title=Nike">
                     <img class="popular-images" src="{% static 'images/presto.png' %}" alt="">
+                    </a>
                 </div>
                 <div class="col-sm-3 col-6">
+                    <a href="{% url 'core:browse-list' %}?title=yeezy">
                     <img class="popular-images" src="{% static 'images/yeezy350.png' %}" alt="">
+                    </a>
                 </div>
                 <div class="col-sm-3 col-6">
+                    <a href="{% url 'core:browse-list' %}?title=adidas">
                     <img class="popular-images" src="{% static 'images/adidas.png' %}" alt="">
+                    </a>
                 </div>
             </div>
         </div>
