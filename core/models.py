@@ -8,6 +8,8 @@ class User_bids(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_bid')
     product = models.ForeignKey('Product', on_delete=models.CASCADE, db_index=True, related_name='user_bid')
+    is_sell = models.BooleanField(default=True)
+    is_sold = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = 'User Bid'

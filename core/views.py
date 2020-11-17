@@ -4,7 +4,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property, Question
-from .forms import AskQuestionForm
+from .forms import AskQuestionForm, ProductTransactionForm
+from django.views.generic.edit import FormMixin
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -56,15 +57,37 @@ class SingleView(DetailView):
         context['sizes'] = Property.objects.order_by('-id')
         return context
 
-class SellProductView(DetailView):
+class SellProductView(FormMixin, DetailView):
     model = Product
     template_name = 'sell_confirmation.html'
+    form_class = ProductTransactionForm
     context_object_name = 'selling_product_detail'
 
     def get_context_data(self, **kwargs):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
+        context['highest_bid'] = [i for i in User_bids.objects.order_by('price') if i.is_sell == False][:1]
+        context['lowest_ask'] = [i for i in User_bids.objects.order_by('-price') if i.is_sell == True][:1]
         return context
+
+    def get_success_url(self):
+        return reverse_lazy('core:product-detail', kwargs={'slug':self.get_object().slug})
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.is_sell = True
+        form.instance.product = self.get_object()
+        print(form.instance.is_sell)
+        form.save()
+        return super().form_valid(form)
+    
 
 class SellSizeProductView(DetailView):
     model = Product
