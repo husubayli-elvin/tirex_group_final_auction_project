@@ -148,10 +148,20 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'accounts.User'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
+ASGI_APPLICATION = "compass.asgi.application"
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tech.academy.user2@gmail.com'
 EMAIL_HOST_PASSWORD = 'fsqcyadagqipthcz'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
