@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView,
 from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property, Question
 from .forms import AskQuestionForm, ProductTransactionForm
 from django.views.generic.edit import FormMixin
-# from firebase import firebase
+import firebase_admin
 
 
 class IndexView(TemplateView):
@@ -70,7 +70,7 @@ class SellProductView(FormMixin, DetailView):
     template_name = 'sell_confirmation.html'
     form_class = ProductTransactionForm
     context_object_name = 'selling_product_detail'
-    # firebase = firebase.FirebaseApplication('URL of Database', None)
+    default_app = firebase_admin.initialize_app()
 
     def get_context_data(self, **kwargs):
         product = self.get_object()
