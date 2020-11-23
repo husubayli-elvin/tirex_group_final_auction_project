@@ -165,3 +165,5 @@ EMAIL_HOST_PASSWORD = 'fsqcyadagqipthcz'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+FIREBASE_CONF_FILE = os.path.join(BASE_DIR, 'compass-firebase-conf.json')
+FIREBASE_DATABASE_URL = 'https://compass-b2533.firebaseio.com/'

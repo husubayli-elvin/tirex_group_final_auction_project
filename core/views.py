@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.conf import settings
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property, Question
 from .forms import AskQuestionForm, ProductTransactionForm
 from django.views.generic.edit import FormMixin
 import firebase_admin
+from firebase_admin import db, credentials
 
 
 class IndexView(TemplateView):
@@ -70,12 +72,12 @@ class SellProductView(FormMixin, DetailView):
     template_name = 'sell_confirmation.html'
     form_class = ProductTransactionForm
     context_object_name = 'selling_product_detail'
-    default_app = firebase_admin.initialize_app()
+    
 
     def get_context_data(self, **kwargs):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
-        context['form'] = ProductTransactionForm(initial={'price': 20})
+        context['form'] = ProductTransactionForm(initial={'price': product.current_price})
         context['highest_bid'] = [i for i in User_bids.objects.filter(
             product=product).order_by('price') if i.is_sell == False][:1]
         context['lowest_ask'] = [i for i in User_bids.objects.filter(
@@ -87,17 +89,20 @@ class SellProductView(FormMixin, DetailView):
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
-        if form.is_valid():
-            # data = {'Name': 'John Doe',
-            #         'RollNo': 3,
-            #         'Percentage': 70.02
-            #         }
-            # result = firebase.post(
-            #     '/python-example-f6d0b/Students/', data)
-            # print(result)
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
+        if not firebase_admin._apps:
+            cred = credentials.Certificate(settings.FIREBASE_CONF_FILE)
+            default_app = firebase_admin.initialize_app(cred, {'databaseURL': settings.FIREBASE_DATABASE_URL})
+            ref = db.reference('server/saving-data/fireblog')
+            print(form)
+            if form.is_valid():
+                prices_ref = ref.child('prices')
+                prices_ref.update({
+                    'price': 3
+                })
+                return self.form_valid(form)
+            else:
+                return self.form_invalid(form)
+        return self.form_valid(form)
 
     def form_valid(self, form):
         form.instance.user = self.request.user
