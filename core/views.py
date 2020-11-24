@@ -110,15 +110,45 @@ class SellProductView(LoginRequiredMixin, FormMixin, DetailView):
         form.save()
         return super().form_valid(form)
 
-class BuyProductView(DetailView):
+class BuyProductView(FormMixin, DetailView):
     model = Product
     template_name = 'buy_confirmation.html'
+    form_class = ProductTransactionForm
     context_object_name = 'buying_product_detail'
 
     def get_context_data(self, **kwargs):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
+        context['form'] = ProductTransactionForm(initial={'price': product.current_price})
+        context['highest_bid'] = [i for i in User_bids.objects.filter(product=product).order_by('price') if i.is_sell == False][:1]
+        context['lowest_ask'] = [i for i in User_bids.objects.filter(product=product).order_by('-price') if i.is_sell == True][:1]
         return context
+
+    def get_success_url(self):
+        return reverse_lazy('core:product-detail', kwargs={'slug': self.get_object().slug})
+    
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if not firebase_admin._apps:
+            cred = credentials.Certificate(settings.FIREBASE_CONF_FILE)
+            default_app = firebase_admin.initialize_app(cred, {'databaseURL': settings.FIREBASE_DATABASE_URL})
+        ref = db.reference('')
+        if form.is_valid():
+            prices_ref = ref.child(f'buy/{self.get_object().pk}')
+            prices_ref.update({
+                'price': float(form.instance.price)
+            })
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.is_sell = False
+        form.instance.product = self.get_object()
+        print(form.instance.price)
+        form.save()
+        return super().form_valid(form)
 
 class HelpView(CreateView):
     template_name = "help.html"

@@ -30,14 +30,18 @@
                             </div>
                             <div class="item-bid d-flex justify-content-center">
                                 <div class="high-bid">
-                                    <span style="color: gray;">Highest Bid:</span><span class="bold pr-2"> ${{ buying_product_detail.current_price }}</span>
+                                    {% for bid in highest_bid %}
+                                    <span style="color: gray;">Highest Bid:</span><span class="bold pr-2"> ${{ bid.price }}</span>
+                                    {% endfor %}
                                 </div>
                                 <div class="line pl-2 pr-5" style=" 
                                         text-align: center; 
                                         border-left: 1px solid #000; 
                                         line-height: 3 em;">
                                     <div class="low-ask">
-                                        <span style="color: gray;"> Lowest Ask:</span><span class="bold"> ${{ buying_product_detail.retail_price }}</span>
+                                        {% for ask in lowest_ask %}
+                                        <span style="color: gray;"> Lowest Ask:</span><span class="bold"> ${{ ask.price }}</span>
+                                        {% endfor %}
                                     </div>
                                 </div>
 
@@ -86,7 +90,11 @@
                             </div>
                             <div class="ask-input d-flex pt-5">
                                 <div class="decoration pl-4 pr-4" style="font-size: 30px; ">$</div>
-                                <input class="form-control changable p-4" style="width: 100%;" value="{{ buying_product_detail.current_price }}">
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    {{form.non_field_error}}
+                                    {{form.price}}
+                                </form>
                             </div>
                             <div class="warning-text pt-2">
                                 <span style="color: #999;">You are about to sell at the highest Bid price</span>
