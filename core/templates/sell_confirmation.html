@@ -137,7 +137,7 @@
                                                             align-items: center;
                                                             justify-content: space-between;"
                                                                                             >
-                                <button class="left-button" style="min-width: 100px; padding: 12px 18px; background-color: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(229, 231, 234);">Cancel</button>
+                                <a href="{% url 'core:product-detail' selling_product_detail.slug %}"><button class="left-button" style="min-width: 100px; padding: 12px 18px; background-color: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(229, 231, 234);">Cancel</button></a>
                                 <input value="Next" class="right-button" type="submit" style="min-width: 100px; padding: 12px 18px; background-color: rgb(255, 81, 95); color: rgb(255, 255, 255); border: 1px solid rgb(255, 81, 95);">
                             </form>
                             </div>
