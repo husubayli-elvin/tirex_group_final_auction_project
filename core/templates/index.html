@@ -29,7 +29,7 @@
                             <li class="nav-item"><a href="" class="nav-link">Login</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
                             {% endif %}
-                            <li class=""><a href="" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
+                            <li class=""><a href="{% url 'core:choose-product-page' %}" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                             <li class="nav-item"><a href="{% url 'accounts:login' %}" class="nav-link">Login</a></li>
                             <li class="nav-item"><a href="{% url 'accounts:register' %}" class="nav-link">Sign up</a></li>
                             {% endif %}
-                            <li class=""><a href="" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
+                            <li class=""><a href="{% url 'core:choose-product-page' %}" class="nav-link"><button style="border: 1px solid white; background-color: transparent; color: white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;">Sell</button></a></li>
                     </ul>
                 </div>
             </div>

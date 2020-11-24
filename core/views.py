@@ -150,6 +150,10 @@ class BuyProductView(FormMixin, DetailView):
         form.save()
         return super().form_valid(form)
 
+class ChooseSellingProductView(TemplateView):
+    template_name = "sell.html"
+    model = Product
+
 class HelpView(CreateView):
     template_name = "help.html"
     model = Question
