@@ -61,9 +61,10 @@ class SingleView(DetailView):
     def get_context_data(self, **kwargs):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
-        context['same_brand'] = Product.objects.filter(
-            brand__title=product.brand.title)
+        context['same_brand'] = Product.objects.filter(brand__title=product.brand.title)
         context['sizes'] = Property.objects.order_by('-id')
+        context['highest_bid'] = [i for i in User_bids.objects.filter(product=product).order_by('price') if i.is_sell == False][:1]
+        context['lowest_ask'] = [i for i in User_bids.objects.filter(product=product).order_by('-price') if i.is_sell == True][:1]
         return context
 
 
@@ -78,10 +79,8 @@ class SellProductView(FormMixin, DetailView):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
         context['form'] = ProductTransactionForm(initial={'price': product.current_price})
-        context['highest_bid'] = [i for i in User_bids.objects.filter(
-            product=product).order_by('price') if i.is_sell == False][:1]
-        context['lowest_ask'] = [i for i in User_bids.objects.filter(
-            product=product).order_by('-price') if i.is_sell == True][:1]
+        context['highest_bid'] = [i for i in User_bids.objects.filter(product=product).order_by('price') if i.is_sell == False][:1]
+        context['lowest_ask'] = [i for i in User_bids.objects.filter(product=product).order_by('-price') if i.is_sell == True][:1]
         return context
 
     def get_success_url(self):

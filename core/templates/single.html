@@ -73,7 +73,9 @@
                 <div style="background-color: rgb(0, 161, 99); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(37, 139, 56); padding-right: 13px; padding-left: 13px;">
-                    <h3 style="color: white;">${{ product_detail.current_price }}</h3>
+                            {% for ask in lowest_ask %}
+                            <h3 style="color: white;">${{ ask.price }}</h3>
+                            {% endfor %}
                     <span style="color: #c6e6c2;">Lowest Ask</span>
                         </div>
                         
@@ -97,7 +99,9 @@
                 <div style="background-color: rgb(255, 86, 98); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(207, 73, 79); padding-right: 13px; padding-left: 13px;">
-                    <h3 style="color: white;">${{ product_detail.retail_price }}</h3>
+                            {% for bid in highest_bid %}
+                            <h3 style="color: white;">${{ bid.price }}</h3>
+                            {% endfor %}
                     <span style="color: #ffcfcf;">Highest Bid</span>
                         </div>
                         
