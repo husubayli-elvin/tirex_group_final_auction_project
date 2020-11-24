@@ -91,17 +91,15 @@ class SellProductView(FormMixin, DetailView):
         if not firebase_admin._apps:
             cred = credentials.Certificate(settings.FIREBASE_CONF_FILE)
             default_app = firebase_admin.initialize_app(cred, {'databaseURL': settings.FIREBASE_DATABASE_URL})
-            ref = db.reference('server/saving-data/fireblog')
-            print(form)
-            if form.is_valid():
-                prices_ref = ref.child('prices')
-                prices_ref.update({
-                    'price': 3
-                })
-                return self.form_valid(form)
-            else:
-                return self.form_invalid(form)
-        return self.form_valid(form)
+        ref = db.reference('')
+        if form.is_valid():
+            prices_ref = ref.child(f'sell/{self.get_object().pk}')
+            prices_ref.update({
+                'price': float(form.instance.price)
+            })
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
 
     def form_valid(self, form):
         form.instance.user = self.request.user

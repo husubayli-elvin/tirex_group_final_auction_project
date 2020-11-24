@@ -16,5 +16,5 @@ class ProductTransactionForm(forms.ModelForm):
         fields = ['price']
 
         widgets = {
-            'price': forms.TextInput(attrs={'id': 'question', 'class': 'form-control changable p-4'}),
+            'price': forms.NumberInput(attrs={'id': 'question', 'class': 'form-control changable p-4'}),
         }
