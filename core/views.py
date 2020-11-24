@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView,
 from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property, Question
 from .forms import AskQuestionForm, ProductTransactionForm
 from django.views.generic.edit import FormMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 import firebase_admin
 from firebase_admin import db, credentials
 
@@ -68,7 +69,7 @@ class SingleView(DetailView):
         return context
 
 
-class SellProductView(FormMixin, DetailView):
+class SellProductView(LoginRequiredMixin, FormMixin, DetailView):
     model = Product
     template_name = 'sell_confirmation.html'
     form_class = ProductTransactionForm
@@ -109,19 +110,6 @@ class SellProductView(FormMixin, DetailView):
         form.save()
         return super().form_valid(form)
 
-
-class SellSizeProductView(DetailView):
-    model = Product
-    template_name = 'sell_single.html'
-    context_object_name = 'selling_size_product_detail'
-
-    def get_context_data(self, **kwargs):
-        product = self.get_object()
-        context = super().get_context_data(**kwargs)
-        context['sizes'] = Property.objects.order_by('-id')
-        return context
-
-
 class BuyProductView(DetailView):
     model = Product
     template_name = 'buy_confirmation.html'
@@ -131,19 +119,6 @@ class BuyProductView(DetailView):
         product = self.get_object()
         context = super().get_context_data(**kwargs)
         return context
-
-
-class BuySizeProductView(DetailView):
-    model = Product
-    template_name = 'buy_single.html'
-    context_object_name = 'buying_size_product_detail'
-
-    def get_context_data(self, **kwargs):
-        product = self.get_object()
-        context = super().get_context_data(**kwargs)
-        context['sizes'] = Property.objects.order_by('-id')
-        return context
-
 
 class HelpView(CreateView):
     template_name = "help.html"

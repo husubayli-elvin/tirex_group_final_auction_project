@@ -12,7 +12,5 @@ urlpatterns = [
     path('help/', views.HelpView.as_view(), name='help-page'),
     path('product/<slug:slug>', views.SingleView.as_view(), name='product-detail'),
     path('sell_it/<slug:slug>', views.SellProductView.as_view(), name='sell-product'),
-    path('sell/<slug:slug>', views.SellSizeProductView.as_view(), name='sell-size-product'),
     path('buy_it/<slug:slug>', views.BuyProductView.as_view(), name='buy-product'),
-    path('buy/<slug:slug>', views.BuySizeProductView.as_view(), name='buy-size-product'),
 ]
