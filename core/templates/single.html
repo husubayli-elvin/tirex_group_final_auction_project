@@ -73,9 +73,9 @@
                 <div style="background-color: rgb(0, 161, 99); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(37, 139, 56); padding-right: 13px; padding-left: 13px;">
-                            {% for ask in lowest_ask %}
+                        
                             <h3 style="color: white;">${{ ask.price }}</h3>
-                            {% endfor %}
+                          
                     <span style="color: #c6e6c2;">Lowest Ask</span>
                         </div>
                         
@@ -99,9 +99,9 @@
                 <div style="background-color: rgb(255, 86, 98); border-radius: 5px;" class="inner-button d-flex">
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(207, 73, 79); padding-right: 13px; padding-left: 13px;">
-                            {% for bid in highest_bid %}
-                            <h3 style="color: white;">${{ bid.price }}</h3>
-                            {% endfor %}
+                            
+                            <h3 id="last_price" style="color: white;">${{ bid.price }}</h3>
+                          
                     <span style="color: #ffcfcf;">Highest Bid</span>
                         </div>
                         
@@ -226,10 +226,18 @@
         </div>
     </div>
     <div>
-        
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    
     {% endblock %}
     {% block footer %}
     {% include 'footer.html' %}
     {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/realtime-db.js' %}"></script>
+    
+    {% endblock %}
 
-    <script src="{% static 'js/single.js' %}"></script>

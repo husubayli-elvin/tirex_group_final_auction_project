@@ -1,4 +1,3 @@
-
 let size = document.querySelectorAll('.dropdown-item')
 
 size.forEach((i) => {

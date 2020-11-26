@@ -96,7 +96,8 @@ class SellProductView(LoginRequiredMixin, FormMixin, DetailView):
         if form.is_valid():
             prices_ref = ref.child(f'sell/{self.get_object().pk}')
             prices_ref.update({
-                'price': float(form.instance.price)
+                'price': float(form.instance.price),
+                'id': self.get_object().pk
             })
             return self.form_valid(form)
         else:
@@ -136,7 +137,8 @@ class BuyProductView(FormMixin, DetailView):
         if form.is_valid():
             prices_ref = ref.child(f'buy/{self.get_object().pk}')
             prices_ref.update({
-                'price': float(form.instance.price)
+                'price': float(form.instance.price),
+                'id': self.get_object().pk
             })
             return self.form_valid(form)
         else:
