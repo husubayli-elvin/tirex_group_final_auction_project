@@ -14,6 +14,7 @@ firebase.analytics();
 
 var database = firebase.database().ref()
 let price = document.querySelector('#last_price')
+let least_price = document.querySelector('#least_price')
 
 let url = 'http://127.0.0.1:8000/api/v1/search/';
 
@@ -34,10 +35,18 @@ fetch(url, {
 
             database.on('value', function (callback) {
                 let dataa = callback.val()
+                console.log(dataa.sell);
                 for (let [k, v] of Object.entries(dataa.buy)) {
-                    console.log(k, v.id);
+                    // console.log(k, v.id);
                     if (v.id == e.id) {
                         price.innerHTML = ` $${v.price}`
+                    }
+
+                }
+                for (let [k, v] of Object.entries(dataa.sell)) {
+                    console.log(k, v.id);
+                    if (v.id == e.id) {
+                        least_price.innerHTML = ` $${v.price}`
                     }
 
                 }
