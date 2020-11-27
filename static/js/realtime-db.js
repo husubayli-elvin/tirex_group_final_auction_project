@@ -12,56 +12,27 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-var database = firebase.database().ref()
+let productId = document.querySelector('.header').dataset.product_id;
+var database = firebase.database().ref(`${productId}`)
+console.log(database);
 let price = document.querySelector('#last_price')
 let least_price = document.querySelector('#least_price')
 
-let url = 'http://127.0.0.1:8000/api/v1/search/';
+database.on('value', function (callback) {
+    let dataa = callback.val();
+    if (dataa) {
+        if (dataa.sell_price) {
+            least_price.innerHTML = `$${dataa.sell_price}`;
+        }
+        else {
+            least_price.innerHTML = document.getElementById('current-price').innerText;
+        };
 
-send_data = {}
-
-let csrf = document.querySelector('[name=csrfmiddlewaretoken]').value;
-fetch(url, {
-    method: "POST",
-    headers: {
-        "Content-type": "application/json",
-        'X-CSRFToken': csrf,
-    },
-    body: JSON.stringify(send_data)
-}).then(response => response.json())
-    .then(data => {
-        console.log(data);
-        data.forEach(e => {
-
-            database.on('value', function (callback) {
-                let dataa = callback.val()
-                console.log(dataa.sell);
-                for (let [k, v] of Object.entries(dataa.buy)) {
-                    // console.log(k, v.id);
-                    if (v.id == e.id) {
-                        price.innerHTML = ` $${v.price}`
-                    }
-
-                }
-                for (let [k, v] of Object.entries(dataa.sell)) {
-                    console.log(k, v.id);
-                    if (v.id == e.id) {
-                        least_price.innerHTML = ` $${v.price}`
-                    }
-
-                }
-
-
-            })
-
-        })
-
-
-    })
-
-
-
-
-
-
-
+        if (dataa.buy_price) {
+            price.innerHTML = `$${dataa.buy_price}`;
+        }
+        else {
+            price.innerHTML = document.getElementById('current-price').innerText;
+        };
+    };
+});

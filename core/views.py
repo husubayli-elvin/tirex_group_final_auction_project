@@ -94,10 +94,9 @@ class SellProductView(LoginRequiredMixin, FormMixin, DetailView):
             default_app = firebase_admin.initialize_app(cred, {'databaseURL': settings.FIREBASE_DATABASE_URL})
         ref = db.reference('')
         if form.is_valid():
-            prices_ref = ref.child(f'sell/{self.get_object().pk}')
+            prices_ref = ref.child(f'{self.get_object().pk}')
             prices_ref.update({
-                'price': float(form.instance.price),
-                'id': self.get_object().pk
+                'sell_price': float(form.instance.price),
             })
             return self.form_valid(form)
         else:
@@ -135,10 +134,9 @@ class BuyProductView(FormMixin, DetailView):
             default_app = firebase_admin.initialize_app(cred, {'databaseURL': settings.FIREBASE_DATABASE_URL})
         ref = db.reference('')
         if form.is_valid():
-            prices_ref = ref.child(f'buy/{self.get_object().pk}')
+            prices_ref = ref.child(f'{self.get_object().pk}')
             prices_ref.update({
-                'price': float(form.instance.price),
-                'id': self.get_object().pk
+                'buy_price': float(form.instance.price),
             })
             return self.form_valid(form)
         else:
