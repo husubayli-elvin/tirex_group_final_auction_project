@@ -64,8 +64,8 @@ class SingleView(DetailView):
         context = super().get_context_data(**kwargs)
         context['same_brand'] = Product.objects.filter(brand__title=product.brand.title)
         context['sizes'] = Property.objects.order_by('-id')
-        context['highest_bid'] = [i for i in User_bids.objects.filter(product=product).order_by('price') if i.is_sell == False][:1]
-        context['lowest_ask'] = [i for i in User_bids.objects.filter(product=product).order_by('-price') if i.is_sell == True][:1]
+        context['highest_bid'] = User_bids.objects.filter(product=product, is_sell=True).order_by('price').first
+        context['lowest_ask'] = User_bids.objects.filter(product=product, is_sell=False).order_by('-price').first
         return context
 
 

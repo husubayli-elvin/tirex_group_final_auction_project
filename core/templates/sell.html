@@ -29,11 +29,21 @@
                             <div class="sub-header">Find the product you're looking for to continue</div>
                         </div>
                         <div class="Search-box pt-5">
-                            <input id="site-search" type="search" placeholder="Search for brand, color, etc." class="searchbox input-text form-control p-4" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" value="" style="width: 450px; margin: 0 auto;">
+                            <form action="" class="sell-this-form">
+                                {% csrf_token %}
+                                <input id="site-search" type="search" placeholder="Search for brand, color, etc." class="searchbox input-text form-control p-4" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" value="" style="width: 450px; margin: 0 auto;">
+                            </form>
+                        </div>
+                        <div id="choose-here">
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/choose-product.js' %}"></script>
+    
     {% endblock %}
