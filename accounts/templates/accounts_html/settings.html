@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Compass</title>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hide_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    {% endblock %}
+    
+    {% block header %}
+    <nav style="padding: 10px;" class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a style="margin-left: 0;" class="navbar-brand" href="/">Compass<span>.</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+    
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><input style="outline: none;" class="single-input" type="text" placeholder="Search for brand, color, etc."></li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item active"><a href="" class="nav-link">Browse</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
+                        <li class=""><a href="" class="nav-link"><button style="border: 1px solid black; background-color: transparent; color: black; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;" class="sell-button">Sell</button></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-12 col-md-2 p-0">
+                <div class="row bg-light pt-3 m-0">
+                    <div class="col-12 p-0">
+                        <div class="sidebar-header text-center pb-3">
+                            <h2>Username</h2>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/buying.svg" alt="Buying icon" class="img-fluid">
+                                <a href="buying.html" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Buying</h5>
+                                        <p>Active Bids, In-Progress, Completed Orders</p>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/selling.svg" alt="Selling icon" class="img-fluid">
+                                <a href="selling.html" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Selling</h5>
+                                        <p>Active Asks, In-Progress, Completed Sales</p>
+                                    </div>
+                                </a>
+                            </div>
+                              
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/profile.svg" alt="Profile icon" class="img-fluid">
+                                <a href="../account.html" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Profile</h5>
+                                    <p>Learn what's unique to you</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/portfolio.svg" alt="Portfolio icon" class="img-fluid">
+                                <a href="portfolio.html" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Portfolio</h5>
+                                    <p>See the value of your items</p>
+                                    </div>
+                                </a>
+                              </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/following.svg" alt="Following icon" class="img-fluid">
+                                <a href="cop-list.html" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Following</h5>
+                                        <p>Products you are watching</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="media mt-3 p-2 bg-white">
+                                <img class="mr-3" src="../icons/settings.svg" alt="Settings icon" class="img-fluid">
+                                <a href="#" class="sidebar-links"> 
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Settings</h5>
+                                        <p>Settings of your profile</p>
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-10">
+                <div class="row m-3">
+                    <h3 class="mb-5">ACCOUNT SETTINGS</h3>
+                    <div class="col-12">
+                        <h5 class="pb-4">PROFILE
+                            <sup>
+                                <a href="settings/profile.html" class="badge badge-success">EDIT</a>
+                            </sup>
+                        </h5>
+                        <div class="row">
+                            <div class="col-4 mb-4">
+                                <h6>NAME</h6>
+                                <p>Username</p>
+                            </div>
+                            <div class="col-4 mb-4">
+                                <h6>SELECTED CURRENCY</h6>
+                                <p>USD</p>
+    
+                            </div>
+                            <div class="col-4 mb-4">
+                                <h6>SHOE SIZE</h6>
+                                <p>4</p>
+                            </div>
+
+                            <div class="col-4 mb-4">
+                                <h6>Email Address</h6>
+                                <p>username@example.com</p>
+                            </div>
+
+                            <div class="col-8 mb-4">
+                                <h6>USERNAME</h6>
+                                <p>patientwind6861603796411189</p>
+                            </div>
+
+                            <div class="col-4 mb-4">
+                                <h6>RESET PASSWORD</h6>
+                                <a href="reset-password-confirmation" class="badge badge-success">Click Here to Reset Password</a>
+                            </div>
+
+                        </div>
+                        <hr class="pt-2">
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    
+    {% endblock %}

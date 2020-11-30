@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Compass</title>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hide_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    {% endblock %}
+    
+    {% block header %}
+
+    <nav style="padding: 10px;" class="navbar navbar-expand-lg navbar-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a style="margin-left: 0;" class="navbar-brand" href="/">Compass<span>.</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+    
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><input style="outline: none;" class="single-input" type="text" placeholder="Search for brand, color, etc."></li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item active"><a href="" class="nav-link">Browse</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Help</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Sign up</a></li>
+                        <li class=""><a href="" class="nav-link"><button style="border: 1px solid black; background-color: transparent; color: black; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; outline: none;" class="sell-button">Sell</button></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-12 col-md-2 p-0">
+                <div class="row bg-light pt-3 m-0">
+                    <div class="col-12 p-0">
+                        <div class="sidebar-header text-center pb-3">
+                            <h2>Username</h2>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/buying.svg" alt="Buying icon" class="img-fluid">
+                                <a href="buying.html" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Buying</h5>
+                                        <p>Active Bids, In-Progress, Completed Orders</p>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/selling.svg" alt="Selling icon" class="img-fluid">
+                                <a href="selling.html" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Selling</h5>
+                                        <p>Active Asks, In-Progress, Completed Sales</p>
+                                    </div>
+                                </a>
+                            </div>
+                              
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/profile.svg" alt="Profile icon" class="img-fluid">
+                                <a href="../account.html" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Profile</h5>
+                                    <p>Learn what's unique to you</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="media mt-3 p-2 bg-white">
+                                <img class="mr-3" src="../icons/portfolio.svg" alt="Portfolio icon" class="img-fluid">
+                                <a href="#" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Portfolio</h5>
+                                    <p>See the value of your items</p>
+                                    </div>
+                                </a>
+                              </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/following.svg" alt="Following icon" class="img-fluid">
+                                <a href="cop-list.html" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Following</h5>
+                                        <p>Products you are watching</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="../icons/settings.svg" alt="Settings icon" class="img-fluid">
+                                <a href="settings.html" class="sidebar-links"> 
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Settings</h5>
+                                        <p>Settings of your profile</p>
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-10">
+                <h3 class="m-3">YOUR PORTFOLIO</h3>
+
+                <div class="row p-3">
+                    <div class="col-12 col-md-8">
+                        <ul class="nav nav-tabs border-0 pb-5" id="myTab" role="tablist">
+                            <li class="nav-item tab-border-bottom active-tab pr-4">
+                              <a class="nav-link active border-0 pb-1" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="basic"
+                                aria-selected="true"><h5 class="text-primary">BASIC</h5></a>
+                            </li>
+                            <li class="nav-item active-tab">
+                              <a class="nav-link border-0 pb-1" id="advanced-tab" data-toggle="tab" href="#advanced" role="tab" aria-controls="advanced"
+                                aria-selected="false"><h5 class="text-success">ADVANCED</h5></a>
+                            </li>
+                          </ul>
+                          
+                          <div class="tab-content" id="myTabContent">
+                            
+                            <div class="tab-pane fade show active " id="basic" role="tabpanel" aria-labelledby="basic-tab">
+                                <div class="row">
+                                    <div class="col-12 col-md-5">
+                                        <canvas id="pie-chart" width="10" height="10"></canvas> 
+                                    </div>
+
+                                    <div class="col-12 col-md-5 offset-md-1">
+                                        <canvas id="pie-chart2" width="10" height="10"></canvas>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
+                                <div class="row">
+                                    <div class="col-12 col-md-5">
+                                        <canvas id="bar-chart" width="10" height="15"></canvas>
+                                    </div>
+                                    <div class="col-12 col-md-5 offset-md-1">
+                                        <canvas id="bar-chart2" width="10" height="15"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3 class="mt-2"><span class="badge badge-dark">TOTALS</span></h3>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr class="t-headers">
+                                        <th>Items</th>
+                                        <th>Rank</th>
+                                        <th>Percentile</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-success">--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr class="t-headers">
+                                        <th>Market Value</th>
+                                        <th> </th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-success">--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr class="t-headers">
+                                        <th>Gain/Loss</th>
+                                        <th> </th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-success">--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr class="t-headers">
+                                        <th>Average Price</th>
+                                        <th> </th>
+                                        <th> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-success">--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                        </div>
+
+                        <p class="pr-0">
+                            (5,412,458 portfolios)
+                        </p>
+
+                        <div class="btn-group">
+                            <button class="btn btn-info mr-2"><i class="fab fa-twitter p-2"></i> Share</button>
+
+                            <button class="btn btn-primary"><i class="fab fa-facebook-f p-2"></i>Share</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12 col-md-8">
+
+                    </div>
+                    <div class="col-12 col-md-4">
+
+                    </div>
+                </div>
+                
+
+                
+                <div class="row pt-3 pb-3">
+                    <div class="col-md-3 offset-md-9 mt-4">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#followModal">ADD ITEM</button>
+                        <i class="fa fa-bars"></i>
+                        <i class="fa fa-th"></i>
+                    </div>
+
+                    <div id="followModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg" role="content">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark">
+                                    <h4 class="modal-title text-white">FOLLOW</h4>
+                                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Which product would you like to add?</p>
+                                    <div class="form-group has-search">
+                                        <span class="fa fa-search form-control-feedback" style="color:black;"></span>
+                                        <input type="text" class="form-control" placeholder="Search for brand, color, etc.">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="table-responsive">
+                            <table class="table" id="portfolio-table">
+                                <thead>
+                                    <th>NAME</th>
+                                    <th>CONDITION</th>
+                                    <th>PURCHASE DATE</th>
+                                    <th>PURCHASE PRICE</th>
+                                    <th>MARKET VALUE</th>
+                                    <th>GAIN/LOSS</th>
+                                </thead>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    {% endblock %}
