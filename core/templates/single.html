@@ -211,13 +211,14 @@
             <div class="row">
                 {% for product in same_brand %}
                     {% if product != product_detail %}
-                    <div class="col-sm-2 col-12 m-sm-3">
+                    <a href="{{ product.get_absolute_url }}" style="color: black;"><div class="col-sm-2 col-12 m-sm-3">
                         <div class="most-cards pl-1 pr-1 pt-1 pb-2">
                             <img class="most-images" src="{{ product.image.url }}" alt="">
                             <p class="mt-2">{{ product.title }}</p>
                             <h5>${{ product.current_price }}</h5>
                             <small>1918 Sold</small>
                         </div>
+                    </a>
                         
                     </div>
                     {% endif %}
