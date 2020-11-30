@@ -62,7 +62,7 @@
 
                             <div class="media mt-3 p-2">
                                 <img class="mr-3" src="../icons/selling.svg" alt="Selling icon" class="img-fluid">
-                                <a href="selling.html" class="sidebar-links">
+                                <a href="{% url 'accounts:selling' %}" class="sidebar-links">
                                     <div class="media-body">
                                         <h5 class="mt-0">Selling</h5>
                                         <p>Active Asks, In-Progress, Completed Sales</p>
@@ -72,7 +72,7 @@
                               
                             <div class="media mt-3 p-2">
                                 <img class="mr-3" src="../icons/profile.svg" alt="Profile icon" class="img-fluid">
-                                <a href="{% url 'accounts:user-profile' %}" class="sidebar-links">
+                                <a href="{% url 'accounts:user-profile' pk %}" class="sidebar-links">
                                     <div class="media-body">
                                     <h5 class="mt-0">Profile</h5>
                                     <p>Learn what's unique to you</p>
