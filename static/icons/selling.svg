@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>CC75293B-5B41-4A22-A796-DAAF90D0FAD0@1x</title>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Temporary-Ops-CSHelp" transform="translate(-16.000000, -344.000000)" stroke="#0F0F0F" stroke-width="1.5">
+            <g id="element/acct/list-copy-2" transform="translate(0.000000, 324.000000)">
+                <g id="Group" transform="translate(16.000000, 20.000000)">
+                    <g id="accounting-bill-stack-1" transform="translate(0.000000, 2.666667)">
+                        <path d="M18,12.3333333 L15.2893333,12.3333333 C14.4325042,12.3339318 13.6963557,12.9418574 13.5337618,13.7831182 C13.3711679,14.6243791 13.8277689,15.4628322 14.6226667,15.7826667 L17.3746667,16.884 C18.1695645,17.2038344 18.6261654,18.0422876 18.4635715,18.8835484 C18.3009776,19.7248093 17.5648292,20.3327349 16.708,20.3333333 L14,20.3333333" id="Shape"></path>
+                        <line x1="16" y1="12.3333333" x2="16" y2="10.3333333" id="Shape"></line>
+                        <line x1="16" y1="22.3333333" x2="16" y2="20.3333333" id="Shape"></line>
+                        <polygon id="Shape" points="9 26.3333333 9 6.33333333 12 0.333333333 20 0.333333333 23 6.33333333 23 26.3333333"></polygon>
+                        <polyline id="Shape" points="20 0.333333333 27 0.333333333 31 6.33333333 23 6.33333333"></polyline>
+                        <polyline id="Shape" points="9 6.33333333 1 6.33333333 5 0.333333333 12 0.333333333"></polyline>
+                        <line x1="1" y1="11.3333333" x2="9" y2="11.3333333" id="Shape"></line>
+                        <line x1="23" y1="11.3333333" x2="31" y2="11.3333333" id="Shape"></line>
+                        <line x1="1" y1="16.3333333" x2="9" y2="16.3333333" id="Shape"></line>
+                        <line x1="23" y1="16.3333333" x2="31" y2="16.3333333" id="Shape"></line>
+                        <line x1="1" y1="21.3333333" x2="9" y2="21.3333333" id="Shape"></line>
+                        <line x1="23" y1="21.3333333" x2="31" y2="21.3333333" id="Shape"></line>
+                        <polyline id="Shape" points="9 26.3333333 1 26.3333333 1 6.33333333"></polyline>
+                        <polyline id="Shape" points="23 26.3333333 31 26.3333333 31 6.33333333"></polyline>
+                        <line x1="23" y1="6.33333333" x2="9" y2="6.33333333" id="Shape"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

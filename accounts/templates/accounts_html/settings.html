@@ -49,8 +49,8 @@
                         </div>
                         <div class="sidebar-content">
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/buying.svg" alt="Buying icon" class="img-fluid">
-                                <a href="{% url 'accounts:buyings' settings.pk %}" class="sidebar-links">
+                                <img class="mr-3" src="{% static 'icons/buying.svg' %}" alt="Buying icon" class="img-fluid">
+                                <a href="{% url 'accounts:buyings' setting.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                         <h5 class="mt-0">Buying</h5>
                                         <p>Active Bids, In-Progress, Completed Orders</p>
@@ -60,8 +60,8 @@
 
 
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/selling.svg" alt="Selling icon" class="img-fluid">
-                                <a href="{% url 'accounts:selling' settings.pk %}" class="sidebar-links">
+                                <img class="mr-3" src="{% static 'icons/selling.svg' %}" alt="Selling icon" class="img-fluid">
+                                <a href="{% url 'accounts:selling' setting.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                         <h5 class="mt-0">Selling</h5>
                                         <p>Active Asks, In-Progress, Completed Sales</p>
@@ -70,8 +70,8 @@
                             </div>
                               
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/profile.svg" alt="Profile icon" class="img-fluid">
-                                <a href="{% url 'accounts:user-profile' settings.pk %}" class="sidebar-links">
+                                <img class="mr-3" src="{% static 'icons/profile.svg' %}" alt="Profile icon" class="img-fluid">
+                                <a href="{% url 'accounts:user-profile' setting.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                     <h5 class="mt-0">Profile</h5>
                                     <p>Learn what's unique to you</p>
@@ -80,8 +80,8 @@
                             </div>
                             
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/portfolio.svg" alt="Portfolio icon" class="img-fluid">
-                                <a href="{% url 'accounts:portfolio' settings.pk %}" class="sidebar-links">
+                                <img class="mr-3" src="{% static 'icons/portfolio.svg' %}" alt="Portfolio icon" class="img-fluid">
+                                <a href="{% url 'accounts:portfolio' setting.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                     <h5 class="mt-0">Portfolio</h5>
                                     <p>See the value of your items</p>
@@ -90,8 +90,8 @@
                               </div>
                             
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/following.svg" alt="Following icon" class="img-fluid">
-                                <a href="{% url 'accounts:cop-list' settings.pk %}" class="sidebar-links">
+                                <img class="mr-3" src="{% static 'icons/following.svg' %}" alt="Following icon" class="img-fluid">
+                                <a href="{% url 'accounts:cop-list' setting.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                         <h5 class="mt-0">Following</h5>
                                         <p>Products you are watching</p>
@@ -100,7 +100,7 @@
                             </div>
                             
                             <div class="media mt-3 p-2 bg-white">
-                                <img class="mr-3" src="../icons/settings.svg" alt="Settings icon" class="img-fluid">
+                                <img class="mr-3" src="{% static 'icons/settings.svg' %}" alt="Settings icon" class="img-fluid">
                                 <a href="#" class="sidebar-links"> 
                                     <div class="media-body">
                                         <h5 class="mt-0">Settings</h5>
@@ -124,26 +124,28 @@
                         <div class="row">
                             <div class="col-4 mb-4">
                                 <h6>NAME</h6>
-                                <p>Username</p>
+                                <p>{{setting.name}}</p>
                             </div>
                             <div class="col-4 mb-4">
                                 <h6>SELECTED CURRENCY</h6>
                                 <p>USD</p>
+                                <!-- <p>{{setting.currency}}</p> -->
     
                             </div>
                             <div class="col-4 mb-4">
                                 <h6>SHOE SIZE</h6>
                                 <p>4</p>
+                                <!-- <p>{{setting.size}}</p> -->
                             </div>
 
                             <div class="col-4 mb-4">
                                 <h6>Email Address</h6>
-                                <p>username@example.com</p>
+                                <p>{{setting.email}}</p>
                             </div>
 
                             <div class="col-8 mb-4">
                                 <h6>USERNAME</h6>
-                                <p>patientwind6861603796411189</p>
+                                <p>{{setting.username}}</p>
                             </div>
 
                             <div class="col-4 mb-4">

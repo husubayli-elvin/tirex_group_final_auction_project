@@ -51,7 +51,7 @@
                         </div>
                         <div class="sidebar-content">
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/buying.svg" alt="Buying icon" class="img-fluid">
+                                <img class="mr-3" src="{% static 'icons/buying.svg' %}" alt="Buying icon" class="img-fluid">
                                 <a href="{% url 'accounts:buyings' coplist.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                         <h5 class="mt-0">Buying</h5>
@@ -62,7 +62,7 @@
 
 
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/selling.svg" alt="Selling icon" class="img-fluid">
+                                <img class="mr-3" src="{% static 'icons/selling.svg' %}" alt="Selling icon" class="img-fluid">
                                 <a href="{% url 'accounts:selling' coplist.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                         <h5 class="mt-0">Selling</h5>
@@ -72,7 +72,7 @@
                             </div>
                               
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/profile.svg" alt="Profile icon" class="img-fluid">
+                                <img class="mr-3" src="{% static 'icons/profile.svg' %}" alt="Profile icon" class="img-fluid">
                                 <a href="{% url 'accounts:user-profile' coplist.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                     <h5 class="mt-0">Profile</h5>
@@ -82,7 +82,7 @@
                             </div>
                             
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/portfolio.svg" alt="Portfolio icon" class="img-fluid">
+                                <img class="mr-3" src="{% static 'icons/portfolio.svg' %}" alt="Portfolio icon" class="img-fluid">
                                 <a href="{% url 'accounts:portfolio' coplist.pk %}" class="sidebar-links">
                                     <div class="media-body">
                                     <h5 class="mt-0">Portfolio</h5>
@@ -92,7 +92,7 @@
                               </div>
                             
                             <div class="media mt-3 p-2 bg-white">
-                                <img class="mr-3" src="../icons/following.svg" alt="Following icon" class="img-fluid">
+                                <img class="mr-3" src="{% static 'icons/following.svg' %}" alt="Following icon" class="img-fluid">
                                 <a href="#" class="sidebar-links">
                                     <div class="media-body">
                                         <h5 class="mt-0">Following</h5>
@@ -102,7 +102,7 @@
                             </div>
                             
                             <div class="media mt-3 p-2">
-                                <img class="mr-3" src="../icons/settings.svg" alt="Settings icon" class="img-fluid">
+                                <img class="mr-3" src="{% static 'icons/settings.svg' %}" alt="Settings icon" class="img-fluid">
                                 <a href="{% url 'accounts:settings' coplist.pk %}" class="sidebar-links"> 
                                     <div class="media-body">
                                         <h5 class="mt-0">Settings</h5>
