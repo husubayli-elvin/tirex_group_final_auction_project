@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Compass</title>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hide_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    {% endblock %}
+    
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+
+    {% block content %}
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-12 col-md-2 p-0">
+                <div class="row bg-light pt-3 m-0">
+                    <div class="col-12 p-0">
+                        <div class="sidebar-header text-center pb-3">
+                            <h2 style="font-size: 23px;">{{profile.username}}</h2>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/buying.svg" alt="Buying icon" class="img-fluid">
+                                <a href="{% url 'accounts:buyings' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Buying</h5>
+                                        <p>Active Bids, In-Progress, Completed Orders</p>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/selling.svg" alt="Selling icon" class="img-fluid">
+                                <a href="{% url 'accounts:selling' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Selling</h5>
+                                        <p>Active Asks, In-Progress, Completed Sales</p>
+                                    </div>
+                                </a>
+                            </div>
+                              
+                            <div class="media mt-3 p-2 bg-white">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/profile.svg" alt="Profile icon" class="img-fluid">
+                                <a href="#" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Profile</h5>
+                                    <p>Learn what's unique to you</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/portfolio.svg" alt="Portfolio icon" class="img-fluid">
+                                <a href="{% url 'accounts:portfolio' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Portfolio</h5>
+                                    <p>See the value of your items</p>
+                                    </div>
+                                </a>
+                              </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/settings.svg" alt="Settings icon" class="img-fluid">
+                                <a href="{% url 'accounts:settings' request.user.slug %}" class="sidebar-links"> 
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Settings</h5>
+                                        <p>Settings of your profile</p>
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-10">
+                <h3 class="m-3">PROFILE</h3>
+                    
+                <div class="row">
+                        <div class="col-12 col-md-6 border-right">
+                            <h4 class="mb-3 ml-3">SELLER LEVEL: 1</h4>
+                            <div class="row">
+                                <div class="col-12 col-md-3 pl-0">
+                                    <span class="fa-stack fa-5x">
+                                        <span class="fa fa-circle fa-stack-2x" style="color:#08a05c"></span>
+                                        <span class="fa fa-stack-1x" style="color:white">
+                                            1    
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="col-12 col-md-2 pt-3 pl-0 pr-0">
+                                    <span class="fa-stack fa-4x">
+                                        <span class="fa fa-circle fa-stack-2x" style="color:#EBECF0"></span>
+                                        <span class="fa fa-stack-1x" style="color:white">
+                                            2    
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="col-12 col-md-2 pt-3 pl-0 pr-0">
+                                    <span class="fa-stack fa-4x">
+                                        <span class="fa fa-circle fa-stack-2x" style="color:#EBECF0"></span>
+                                        <span class="fa fa-stack-1x" style="color:white">
+                                            3    
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="col-12 col-md-2 pt-3 pl-0 pr-0">
+                                    <span class="fa-stack fa-4x">
+                                        <span class="fa fa-circle fa-stack-2x" style="color:#EBECF0"></span>
+                                        <span class="fa fa-stack-1x" style="color:white">
+                                            4    
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-4 border-right">
+                                    <h5>SALES
+                                        <sup>
+                                            <span class="fa-stack">
+                                                <span class="fa fa-circle fa-stack-2x" style="color:black"></span>
+                                                <span class="fas fa-question fa-stack-1x" style="color:white" data-toggle="tooltip" data-placement="top"
+                                                title="The number of items You should sold on StockX since the beginning of time"></span>
+                                              </span>
+                                        </sup>
+                                    </h5>
+                                    <h4 class="text-center">0</h4>
+
+                                </div>
+
+                                <div class="col-8">
+                                    <h5>TRANSACTION FEE
+                                        <sup>
+                                            <span class="fa-stack">
+                                                <span class="fa fa-circle fa-stack-2x" style="color:black"></span>
+                                                <span class="fas fa-question fa-stack-1x" style="color:white" data-toggle="tooltip" title="The transaction fee You are charged for each sale on StockX" data-placement="top"></span>
+                                            </span>
+                                        </sup>
+                                    </h5>
+                                    <h4 class="text-center">9.5%</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-6">
+                            <div class="row">
+                                <h5 class="mt-5 ml-5">SALES TO REACH LEVEL 2
+                                    <sup>
+                                        <span class="fa-stack">
+                                            <span class="fa fa-circle fa-stack-2x" style="color:black"></span>
+                                            <span class="fas fa-question fa-stack-1x" style="color:white" data-toggle="tooltip" data-placement="top" data-html="true"
+                                             title="The number of sales needed to reach next level and earn a lower Transaction Rate"> </span>
+                                        </span>
+                                    </sup>
+                                </h5>
+
+                                <div class="col-12 mt-3">
+                                    <div class="progress rounded" style="height: 25px;">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    <div class="row">
+                                        <div class="col-6 mt-3">
+                                            <h6>0 SALES COMPLETED</h6>
+                                            <p style="color:gray">PAST 12 MONTHS</p>
+                                        </div>
+    
+                                        <div class="col-6 mt-3">
+                                            <h6>3 NEEDED</h6>
+                                            <p style="color:gray">BY TUESDAY, NOVEMBER 2, 2021</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6 col-md-3 border-right">
+                        <h4 class="mb-2">STREETWEAR</h4>
+                        <h6 class="mb-2">TRANSACTION FEE</h6>
+                        <h6 class="text-center">9.5%</h6>
+                    </div>
+
+                    <div class="col-6 col-md-3 border-right">
+                        <h4 class="mb-2">COLLECTIBLES</h4>
+                        <h6 class="mb-2">TRANSACTION FEE</h6>
+                        <h6 class="text-center">9.5%</h6>
+                    </div>
+
+                    <div class="col-6 col-md-3 border-right">
+                        <h4 class="mb-2">WATCHES</h4>
+                        <h6 class="mb-2">TRANSACTION FEE</h6>
+                        <h6 class="text-center">9.9%</h6>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <h4 class="mb-2">HANDBAGS</h4>
+                        <h6 class="mb-2">TRANSACTION FEE</h6>
+                        <h6 class="text-center">14.4999999%</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    {% endblock %}
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+
+    {% block js %}
+    <script src=""></script>
+    {% endblock %}

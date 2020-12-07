@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Compass</title>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hide_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    {% endblock %}
+    
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+
+    {% block content %}
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-12 col-md-2 p-0">
+                <div class="row bg-light pt-3 m-0">
+                    <div class="col-12 p-0">
+                        <div class="sidebar-header text-center pb-3">
+                            <h2 style="font-size: 23px;">{{setting.username}}</h2>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="media mt-3 p-2 bg-white">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/buying.svg" alt="Buying icon" class="img-fluid">
+                                <a href="{% url 'accounts:buyings' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Buying</h5>
+                                        <p>Active Bids, In-Progress, Completed Orders</p>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/selling.svg" alt="Selling icon" class="img-fluid">
+                                <a href="{% url 'accounts:selling' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Selling</h5>
+                                        <p>Active Asks, In-Progress, Completed Sales</p>
+                                    </div>
+                                </a>
+                            </div>
+                              
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/profile.svg" alt="Profile icon" class="img-fluid">
+                                <a href="{% url 'accounts:user-profile' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Profile</h5>
+                                    <p>Learn what's unique to you</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/portfolio.svg" alt="Portfolio icon" class="img-fluid">
+                                <a href="{% url 'accounts:portfolio' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Portfolio</h5>
+                                    <p>See the value of your items</p>
+                                    </div>
+                                </a>
+                              </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/settings.svg" alt="Settings icon" class="img-fluid">
+                                <a href="{% url 'accounts:settings' request.user.slug %}" class="sidebar-links"> 
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Settings</h5>
+                                        <p>Settings of your profile</p>
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-10">
+                <div class="row m-3">
+                    <h3 class="mb-5">ACCOUNT SETTINGS</h3>
+                    <div class="col-12">
+                        <h5 class="pb-4">PROFILE
+                            <sup>
+                                <a href="settings/profile.html" class="badge badge-success">EDIT</a>
+                            </sup>
+                        </h5>
+                        <div class="row">
+                            <div class="col-4 mb-4">
+                                <h6>NAME</h6>
+                                <p>{{setting.first_name}} {{setting.last_name}}</p>
+                            </div>
+                            <div class="col-4 mb-4">
+                                <h6>SELECTED CURRENCY</h6>
+                                <p>USD</p>
+                                <!-- <p>{{setting.currency}}</p> -->
+    
+                            </div>
+                            <div class="col-4 mb-4">
+                                <h6>SHOE SIZE</h6>
+                                <p>4</p>
+                                <!-- <p>{{setting.size}}</p> -->
+                            </div>
+
+                            <div class="col-4 mb-4">
+                                <h6>Email Address</h6>
+                                <p>{{setting.email}}</p>
+                            </div>
+
+                            <div class="col-8 mb-4">
+                                <h6>USERNAME</h6>
+                                <p>{{setting.username}}</p>
+                            </div>
+
+                            <div class="col-4 mb-4">
+                                <h6>RESET PASSWORD</h6>
+                                <a href="{% url 'accounts:reset-password' %}" class="badge badge-success">Click Here to Reset Password</a>
+                            </div>
+
+                        </div>
+                        <hr class="pt-2">
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    
+    {% endblock %}
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static 'js/account.js' %}"></script>
+    {% endblock %}

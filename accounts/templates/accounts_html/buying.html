@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Compass</title>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hide_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    {% endblock %}
+    
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-12 col-md-2 p-0">
+                <div class="row bg-light pt-3 m-0">
+                    <div class="col-12 p-0">
+                        <div class="sidebar-header text-center pb-3">
+                            <h2 style="font-size: 23px;">{{buying.username}}</h2>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="media mt-3 p-2 bg-white">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/buying.svg" alt="Buying icon" class="img-fluid">
+                                <a href="#" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Buying</h5>
+                                        <p>Active Bids, In-Progress, Completed Orders</p>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/selling.svg" alt="Selling icon" class="img-fluid">
+                                <a href="{% url 'accounts:selling' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Selling</h5>
+                                        <p>Active Asks, In-Progress, Completed Sales</p>
+                                    </div>
+                                </a>
+                            </div>
+                              
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/profile.svg" alt="Profile icon" class="img-fluid">
+                                <a href="{% url 'accounts:user-profile' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Profile</h5>
+                                    <p>Learn what's unique to you</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/portfolio.svg" alt="Portfolio icon" class="img-fluid">
+                                <a href="{% url 'accounts:portfolio' request.user.slug %}" class="sidebar-links">
+                                    <div class="media-body">
+                                    <h5 class="mt-0">Portfolio</h5>
+                                    <p>See the value of your items</p>
+                                    </div>
+                                </a>
+                              </div>
+                            
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/settings.svg" alt="Settings icon" class="img-fluid">
+                                <a href="{% url 'accounts:settings' request.user.slug %}" class="sidebar-links"> 
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Settings</h5>
+                                        <p>Settings of your profile</p>
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-10">
+                <div class="row pt-5 pl-3">
+                    <div class="col-6 col-md-2">
+                        <div class="media">
+                            <img src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/chart-blue.svg" alt="Chart blue" class="img-fluid purchasing mr-2">
+                            <div class="media-body">
+                                <h6>PURCHASING</h6>
+                                <p>_ _</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2 offset-md-8">
+                        <div class="media">
+                            <img src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/tag.svg" alt="tag" class="img-fluid purchasing">
+                            <div class="media-body">
+                                <h6>PURCHASING(#)</h6>
+                                <p>_ _</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs border-0 pb-3" id="myTab" role="tablist">
+                            <li class="nav-item tab-border-bottom active-tab">
+                              <a class="nav-link border-0 pb-1" id="current-tab" data-toggle="tab" href="#current" role="tab" aria-controls="current"
+                                aria-selected="true"><h4>Current</h4></a>
+                            </li>
+                            <li class="nav-item active-tab">
+                              <a class="nav-link border-0 pb-1" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending"
+                                aria-selected="false"><h4>Pending</h4></a>
+                            </li>
+                            <li class="nav-item active-tab">
+                              <a class="nav-link border-0 pb-1" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history"
+                                aria-selected="false"><h4>History</h4></a>
+                            </li>
+                          </ul>
+                          
+                          
+                          <div class="tab-content" id="myTabContent">
+                            
+                            <div class="tab-pane fade show active" id="current" role="tabpanel" aria-labelledby="current-tab">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Search name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-dark" type="button">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Search name, order #" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-dark" type="button">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Search name, order #" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-dark" type="button">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table" id="buying-table">
+                                <thead>
+                                    <th>Item</th>
+                                    <th>Bid Price</th>
+                                    <th>Highest Bid</th>
+                                    <th>Lowest Ask</th>
+                                    <th>Expires</th>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    
+    {% endblock %}
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static 'js/account.js' %}"></script>
+    {% endblock %}
