@@ -25,7 +25,7 @@
                             <h2 style="font-size: 23px;">{{setting.username}}</h2>
                         </div>
                         <div class="sidebar-content">
-                            <div class="media mt-3 p-2 bg-white">
+                            <div class="media mt-3 p-2">
                                 <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/buying.svg" alt="Buying icon" class="img-fluid">
                                 <a href="{% url 'accounts:buyings' request.user.slug %}" class="sidebar-links">
                                     <div class="media-body">
@@ -66,12 +66,21 @@
                                 </a>
                               </div>
                             
-                            <div class="media mt-3 p-2">
+                            <div class="media mt-3 p-2 bg-white">
                                 <img class="mr-3" src="https://raw.githubusercontent.com/TechAcademy-Azerbaijan/tirex_group_final_auction_project/9e53f3695d3a3f5eee0685a79df3c1f6af25b6aa/_frontend/icons/settings.svg" alt="Settings icon" class="img-fluid">
                                 <a href="{% url 'accounts:settings' request.user.slug %}" class="sidebar-links"> 
                                     <div class="media-body">
                                         <h5 class="mt-0">Settings</h5>
                                         <p>Settings of your profile</p>
+                                    </div>
+                                </a> 
+                            </div>
+                            <div class="media mt-3 p-2">
+                                <img class="mr-3" src="https://stockx-assets.imgix.net/png/icons/logout.svg?auto=compress,format" alt="Settings icon" class="img-fluid">
+                                <a href="{% url 'accounts:log-out' %}" class="sidebar-links"> 
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Log out</h5>
+                                        <p>Log out of your account</p>
                                     </div>
                                 </a> 
                             </div>
