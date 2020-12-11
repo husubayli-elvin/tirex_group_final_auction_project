@@ -19,8 +19,21 @@
     {% endblock %}
 
     {% block content %}
+<div class="text-center" style="margin-top: 23px;">
 
-    <h1>OKlaaan!</h1>
+    <h1 style="color: #08a05c; font-size: 60px; text-transform: uppercase;">Congratulations!</h1>
+    <h2 class="mt-3" style="background-color: black; color: white; margin: 0 auto; width: 650px; padding: 5px;">You successfully bought your item.</h2>
+ 
+    <div class="mt-4">
+        <img src="https://img.icons8.com/ios/452/confetti.png" alt="" width="380px">
+    </div>
+    <div>
+        <a href="{% url 'core:browse-list' %}">
+            <button style="font-size: 20px; border:1px solid #08a05c; background-color: #08a05c; color: white; border-radius: 4px; padding: 10px;">Go grab something else!</button>
+
+        </a>
+    </div>
+</div>
 
         {% endblock %}
         {% block js %}

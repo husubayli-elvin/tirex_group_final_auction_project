@@ -29,7 +29,7 @@ let sendRequest = (data) => {
                     // console.log(e)
                     console.log(e.url)
                 document.querySelector('#choose-here').innerHTML += `
-                <a href="${e.url}" style="color: black;"><div class="mt-3 pb-3" style="border-bottom: 2px solid #e5e7ea; width: 500px; margin: 0 auto;">
+                <a href="/sell_it/${e.slug}" style="color: black;"><div class="mt-3 pb-3" style="border-bottom: 2px solid #e5e7ea; width: 500px; margin: 0 auto;">
                 <div style="display: flex;">
                 <img style="width: 100px;" src="${e.image}" alt="">  
                 <p class="pl-3">${e.title}</p>

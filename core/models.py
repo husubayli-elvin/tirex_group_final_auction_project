@@ -21,7 +21,6 @@ class User_bids(models.Model):
 class Order(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     buyer = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order_buyer')
-    seller = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order_seller')
     product = models.ForeignKey('Product', on_delete=models.CASCADE, db_index=True, related_name='order')
     added_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
