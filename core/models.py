@@ -18,6 +18,22 @@ class User_bids(models.Model):
     def __str__(self):
         return f'{self.user.username}: {self.price}'
 
+class Order(models.Model):
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order_buyer')
+    seller = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order_seller')
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, db_index=True, related_name='order')
+    added_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
+
+    def __str__(self):
+        return f'{self.product}: {self.price}'
+     
+
 class Category(models.Model):
     title = models.CharField(max_length=50)
 

@@ -26,7 +26,7 @@
                     <div class="sellbuy">
                         <div class="item-header">
                             <div class="item-name pt-5">
-                                <h2>{{ buying_product_detail.title }}</h2>
+                                <h2 id="title-with-slug" ss="{{buying_product_detail.slug}}">{{ buying_product_detail.title }}</h2>
                             </div>
                             <div class="item-bid d-flex justify-content-center">
                                 <div class="high-bid">
@@ -128,7 +128,10 @@
                                                             justify-content: space-between;"
                                                                                             >
                                 <a href="{% url 'core:product-detail' buying_product_detail.slug %}"><button class="left-button" style="min-width: 100px; padding: 12px 18px; background-color: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(229, 231, 234);">Cancel</button></a>
-                                <input class="right-button" value="Next" type="submit" style="min-width: 100px; padding: 12px 18px; background-color: rgb(8, 160, 92); color: rgb(255, 255, 255); border: 1px solid rgb(8, 160, 92);">
+                                <div id="right-button">
+                                    <input class="right-button" value="Next" type="submit" style="min-width: 100px; padding: 12px 18px; background-color: rgb(8, 160, 92); color: rgb(255, 255, 255); border: 1px solid rgb(8, 160, 92);">
+                                </div>
+                                
                             </form>
                             </div>
                             

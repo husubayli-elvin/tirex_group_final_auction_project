@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}
+    <title>Compass</title>
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/browse.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+    {% endblock %}
+    
+    {% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light text-center" id="ftco-navbar">
+
+        <a class="navbar-brand" href="/">Compass <img style="width: 25px;" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Arrow_Compass_Black.png" alt=""></a>
+
+
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+
+    <h1>OKlaaan!</h1>
+
+        {% endblock %}
+        {% block js %}
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="{% static 'js/stripe.js' %}"></script>
+        {% endblock %}
+
+        

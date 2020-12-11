@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %}
+    <title>Compass</title>
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/browse.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+    {% endblock %}
+    
+    {% block header %}
+    <nav class="navbar navbar-expand-lg navbar-dark ftco-navbar-light text-center" id="ftco-navbar">
+
+        <a class="navbar-brand" href="/">Compass <img style="width: 25px;" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Arrow_Compass_Black.png" alt=""></a>
+
+
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+    <div class="text-center mb-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="sellbuy">
+                        {% include 'stripe.html' %}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="size-select pt-5">
+                        <div class="choose-size pt-4">
+                            <img src="{{ forbuy.image.url }}" width="70%" height="70%">
+                            <div class="ask-input d-flex pt-5">
+                                <div class="decoration pl-4 pr-4" style="font-size: 30px; ">$ {{forbuy.current_price}}</div>
+                                <form action="" method="POST">
+                                    
+                                
+                            </div>
+                            <div class="warning-text pt-2">
+                                <span style="color: #999;">You are about to buy at the Lowest Ask price</span>
+                            </div>
+                            <div class="multi-order pt-5">
+                                <div class="item-row d-flex">
+                                    <div class="">
+                                        Transaction Fee (9.5%)
+                                    </div>
+                                    <div class="">
+                                    </div>
+                                </div>
+                                <div class="item-row d-flex">
+                                    <div class="">
+                                        Payment Proc. (3%)
+                                    </div>
+                                    <div class="">
+                                        -$5.10
+                                    </div>
+                                </div>
+                                <div class="item-row d-flex">
+                                    <div class="">
+                                        Estimated Shipping
+                                    </div>
+                                    <div class="">
+                                        -$0.00
+                                    </div>
+                                </div>
+                                <div class="item-row d-flex">
+                                    <div class="">
+                                        Total Payout
+                                    </div>
+                                    <div class="">
+                                        ${{forbuy.current_price}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-inner pt-3" style="height: 100%;
+                                                            padding: 0 30px;
+                                                            display: flex;
+                                                            align-items: center;
+                                                            justify-content: space-between;"
+                                                                                            >
+                                <a href=""><button class="left-button" style="min-width: 100px; padding: 12px 18px; background-color: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(229, 231, 234);">Cancel</button></a>
+                                <input value="Next" class="right-button" type="submit" style="min-width: 100px; padding: 12px 18px; background-color: rgb(8, 160, 92); color: rgb(255, 255, 255); border: 1px solid rgb(8, 160, 92);">
+                            </form>
+                            </div>
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        {% endblock %}
+        {% block js %}
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="{% static 'js/stripe.js' %}"></script>
+        {% endblock %}
+
+        

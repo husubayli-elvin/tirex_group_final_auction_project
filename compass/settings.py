@@ -168,3 +168,6 @@ EMAIL_USE_TLS = True
 
 FIREBASE_CONF_FILE = os.path.join(BASE_DIR, 'compass-firebase-conf.json')
 FIREBASE_DATABASE_URL = 'https://compass-b142f.firebaseio.com/'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51HRkMbF1lulHJpCgiLbhB9twJlb0eKfKpoYysi83t21e0AoggRB1Uk4YWRCnpz9W7gnpIYbx6rn77wHVKVl3YJcv00ilvU0tE0'
+STRIPE_SECRET_KEY = 'sk_test_51HRkMbF1lulHJpCgsfHy0nItoH7jlFlbyrSVP2IvlWMWo8V8pb1TcRHKHMqSbBCLIi1Vec5T7AVoMlLENUIXHJxw00CIwUA54d'

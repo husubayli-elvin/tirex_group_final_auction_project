@@ -1,15 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.conf import settings
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
-from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property, Question
+from core.models import User_bids, Category, Brand, Product, Property_name, Property, Product_property, Question, Order
 from .forms import AskQuestionForm, ProductTransactionForm
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 import firebase_admin
+import stripe
+from django.contrib import messages
 from firebase_admin import db, credentials
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class IndexView(TemplateView):
@@ -53,6 +57,42 @@ class BrowseListView(ListView):
 class AboutUsView(TemplateView):
     template_name = "about.html"
 
+class ForBuyView(FormMixin, DetailView):
+    model = Product
+    template_name = "for_buy.html"
+    context_object_name = "forbuy"
+    form_class = ProductTransactionForm
+
+    def post(self,request, *args, **kwargs):
+        sold_product = self.get_object()
+        if request.method == 'POST':
+            if request.user.is_authenticated:
+                token = request.POST.get('stripeToken', False)
+                if token:
+                    customer = stripe.Customer.create(
+                        email=request.user.email,
+                        name=request.user.username,
+                        source=token
+                    )
+
+                    charge = stripe.Charge.create(
+                        customer=customer,
+                        amount=int(sold_product.current_price*100),
+                        currency='usd',
+                        description='Example charge',
+                    )
+                    order = Order.objects.create(
+                        buyer= self.request.user,
+                        price=int(sold_product.current_price*100),
+                        product= sold_product,
+                    )
+                    messages.success(request, 'Paid successfull!')
+                    return redirect(reverse_lazy('core:success-page'))
+        messages.success(request, 'Token not found!')
+        return redirect(reverse_lazy('core:product-detail', kwargs={'slug': self.get_object().slug}))
+
+class SuccessPaymmentView(TemplateView):
+    template_name = "success.html"
 
 class SingleView(DetailView):
     model = Product

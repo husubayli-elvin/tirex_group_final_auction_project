@@ -133,13 +133,19 @@
                             <div class="tab-pane fade show active" id="current" role="tabpanel" aria-labelledby="current-tab">
                                 <div class="form-group has-search">
                                     <span class="fa fa-search form-control-feedback"></span>
-                                    <input type="text" class="form-control" placeholder="Search name">
+                                    <form action="" id="search-this-form">
+                                        {% csrf_token %}
+                                    <input id="site-search" type="text" class="form-control" placeholder="Search name">
+                                </form>
                                 </div>
                             </div>
                             
                             <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Search name, order #" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <form action="" id="search-this-form">
+                                        {% csrf_token %}
+                                    <input id="site-search" type="text" class="form-control" placeholder="Search name, order #" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    </form>
                                     <div class="input-group-append">
                                       <button class="btn btn-outline-dark rounded-pill ml-2" type="button"><i class="fas fa-share-square pr-1"></i>Export</button>
                                     </div>
@@ -148,7 +154,10 @@
                             
                             <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Search name, order #" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <form action="" id="search-this-form">
+                                        {% csrf_token %}
+                                    <input id="site-search" type="text" class="form-control" placeholder="Search name, order #" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    </form>
                                     <div class="input-group-append">
                                       <button class="btn btn-outline-dark rounded-pill ml-2" type="button"><i class="fas fa-share-square pr-1"></i>Export</button>
                                     </div>
@@ -162,16 +171,28 @@
                     <div class="col-12">
                         <div class="table-responsive">
                             <table class="table" id="buying-table">
-                                <thead>
-                                    <th>Item</th>
+                                    <tr>
+                                        <th>Item</th>
                                     <th>Bid Price</th>
                                     <th>Highest Bid</th>
                                     <th>Lowest Ask</th>
-                                    <th>Expires</th>
-                                </thead>
-                                <tbody>
+                                    <th>Made for</th>
+                                      </tr>
+                                      {% for product in sold_products %}
+                                      {% if product.user == selling %}
+                                      <tr>
+                                        <td>{{ product.product.title }}</td>
+                                        <td>{{ product.product.current_price }}</td>
+                                        <td>{{ product.product.current_price }}</td>
+                                        <td>{{ product.product.current_price }}</td>
+                                        <td>{{ product.product.made_for }}</td>
+                                      </tr>
+                                      {% endif %}
+                                      {% endfor %}
+                                    
+                               
 
-                                </tbody>
+                                
                             </table>
                         </div>
                     </div>

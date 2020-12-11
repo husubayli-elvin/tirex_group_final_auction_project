@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from accounts.models import User
+from core.models import User_bids
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from accounts.forms import RegisterForm, LoginForm, ResetPasswordForm, ResetPasswordConfirmForm
 from django.urls import reverse_lazy
@@ -46,6 +47,7 @@ class BuyingView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['bought_products'] = User_bids.objects.filter(is_sell=False, is_sold=True)
         return context
 
     
@@ -65,6 +67,7 @@ class PortfolioView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['bought_products'] = User_bids.objects.filter(is_sell=False)
         return context
 
 
@@ -75,6 +78,7 @@ class SellingView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['sold_products'] = User_bids.objects.filter(is_sell=True, is_sold=True)
         return context
 
 class SettingView(DetailView):

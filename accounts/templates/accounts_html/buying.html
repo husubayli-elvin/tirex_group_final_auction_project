@@ -166,17 +166,29 @@
                     <div class="col-12">
                         <div class="table-responsive">
                             <table class="table" id="buying-table">
-                                <thead>
+                                <tr>
                                     <th>Item</th>
-                                    <th>Bid Price</th>
-                                    <th>Highest Bid</th>
-                                    <th>Lowest Ask</th>
-                                    <th>Expires</th>
-                                </thead>
-                                <tbody>
+                                <th>Bid Price</th>
+                                <th>Highest Bid</th>
+                                <th>Lowest Ask</th>
+                                <th>Made for</th>
+                                  </tr>
+                                  {% for product in bought_products %}
+                                  {% if product.user == buying %}
+                                  <tr>
+                                    <td>{{ product.product.title }}</td>
+                                    <td>{{ product.product.current_price }}</td>
+                                    <td>{{ product.product.current_price }}</td>
+                                    <td>{{ product.product.current_price }}</td>
+                                    <td>{{ product.product.made_for }}</td>
+                                  </tr>
+                                  {% endif %}
+                                  {% endfor %}
+                                
+                           
 
-                                </tbody>
-                            </table>
+                            
+                        </table>
                         </div>
                     </div>
                 </div>

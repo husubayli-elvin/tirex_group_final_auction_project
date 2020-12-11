@@ -253,8 +253,14 @@
                                 <div class="modal-body">
                                     <p>Which product would you like to add?</p>
                                     <div class="form-group has-search">
+                                        <form action="" class="add-this-form">
+                                            {% csrf_token %}
                                         <span class="fa fa-search form-control-feedback" style="color:black;"></span>
-                                        <input type="text" class="form-control" placeholder="Search for brand, color, etc.">
+                                        <input type="text" class="form-control" id="add-portfolio" placeholder="Search for brand, color, etc.">
+                                        </form>
+                                    </div>
+                                    <div id="add-here">
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -265,15 +271,27 @@
                 <div class="row">
                     <div class="col-12 mt-3">
                         <div class="table-responsive">
-                            <table class="table" id="portfolio-table">
-                                <thead>
+                            <table class="table mb-5" id="portfolio-table">
+                                <tr>
                                     <th>NAME</th>
                                     <th>CONDITION</th>
                                     <th>PURCHASE DATE</th>
                                     <th>PURCHASE PRICE</th>
                                     <th>MARKET VALUE</th>
                                     <th>GAIN/LOSS</th>
-                                </thead>
+                                </tr>
+                                {% for product in bought_products %}
+                                      {% if product.user == portfolio %}
+                                      <tr>
+                                        <td>{{ product.product.title }}</td>
+                                        <td>{{ product.product.condition }}</td>
+                                        <td>{{ product.product.added_at | date:"F  j" }}</td>
+                                        <td>{{ product.product.current_price }}</td>
+                                        <td>{{ product.product.retail_price }}</td>
+                                        <td>{{ product.product.made_for }}</td>
+                                      </tr>
+                                      {% endif %}
+                                      {% endfor %}
 
                             </table>
                         </div>
@@ -293,5 +311,6 @@
 
     {% block js %}
     <script src="{% static 'js/account.js' %}"></script>
+    <script src="{% static 'js/add-portfolio.js' %}"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     {% endblock %}
