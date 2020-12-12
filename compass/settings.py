@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     #Local apps
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
+    
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'compass.urls'
@@ -74,6 +78,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',  
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -81,6 +88,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'compass.wsgi.application'
 
+SOCIAL_AUTH_FACEBOOK_KEY = 385572982671895
+SOCIAL_AUTH_FACEBOOK_SECRET = 'a0ea5a510a024c958ec8191ac6886ec5'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+# SOCIAL_AUTH_URL_NAMESPACE = "users:social"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -120,7 +132,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
 
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = reverse_lazy('accounts:login')
+LOGOUT_URL = reverse_lazy('accounts:logout')
 LOGIN_REDIRECT_URL = reverse_lazy('core:index-page')
 LOGOUT_REDIRECT_URL = reverse_lazy('accounts:login')
 
