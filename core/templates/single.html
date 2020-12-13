@@ -74,7 +74,7 @@
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(37, 139, 56); padding-right: 13px; padding-left: 13px;">
                         
-                            <h3 id="least_price" style="color: white;">${% if lowest_ask %}{{ lowest_ask.price }}{% else %}--{% endif %}</h3>
+                            <h3 id="least_price" style="color: white;">${% if highest_bid %}{{ highest_bid.price }}{% else %}--{% endif %} </h3>
                           
                     <span style="color: #c6e6c2;">Lowest Ask</span>
                         </div>
@@ -100,7 +100,7 @@
                     <div style="padding: 7px;">
                         <div style="border-right: 1px solid rgb(207, 73, 79); padding-right: 13px; padding-left: 13px;">
                             
-                            <h3 id="last_price" style="color: white;">${% if highest_bid %}{{ highest_bid.price }}{% else %}--{% endif %}</h3>
+                            <h3 id="last_price" style="color: white;">${% if lowest_ask %}{{ lowest_ask.price }}{% else %}--{% endif %}</h3>
                           
                     <span style="color: #ffcfcf;">Highest Bid</span>
                         </div>
